@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 <style>
 body {
   font-family: "Lato", sans-serif;
@@ -54,6 +55,29 @@ body {
   padding: 16px;
 }
 
+#ct7 {
+    font-size: 80px;
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 50%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#data {
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 70%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
@@ -69,12 +93,79 @@ body {
 </div>
 
 <div id="main">
-  <h2>CS 20 Final Project Homepage</h2>
+  <h1>Welcome, Vanesa</h1>
+  <div id='ct7'></div>
+  <div id="data"></div>
 </div>
 
 <script>
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+    get_weather();
+  document.getElementById("mySidenav").style.width = "15%";
+  document.getElementById("main").style.marginLeft = "15%";
+
+  // weather api
+  // I referenced loadFile() from read_json_ajax.html and contray_axax2.html
+  function get_weather() {
+        request = new XMLHttpRequest();
+        console.log("1 - request object created");
+        // opens json file at remote location/set urll for ajax request to be json file
+        request.open("GET", "https://api.quotable.io/random?tags=inspirational&maxLength=140", true);
+        console.log("2 - opened request file");
+
+        // set up callback
+        request.onreadystatechange = function() {
+            console.log("3 - readystatechange event fired.");
+
+            // runs if successful
+            // gets random quote
+            if (request.readyState == 4 && request.status == 200) {
+                result = request.responseText;
+                ran_quote = JSON.parse(result); 
+                
+                document.getElementById("data").innerHTML = '"'+ ran_quote["content"] +'"';
+                }
+                else if (request.readyState == 4 && request.status != 200) {
+                    document.getElementById("data").innerHTML = "Something is wrong!";
+                }
+                else if (request.readyState == 3) {
+                    document.getElementById("data").innerHTML = "Far too soon! Try again";
+                }
+            }
+            // sends HTTP request
+            request.send();
+            console.log("4 - Request sent");
+        }
+
+        // time
+        function display_ct7() {
+            var x = new Date()
+            var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
+            hours = x.getHours( ) % 12;
+            hours = hours ? hours : 12;
+            hours=hours.toString().length==1? 0+hours.toString() : hours;
+
+            var minutes=x.getMinutes().toString()
+            minutes=minutes.length==1 ? 0+minutes : minutes;
+
+            var seconds=x.getSeconds().toString()
+            seconds=seconds.length==1 ? 0+seconds : seconds;
+
+            var dt=x.getDate().toString();
+            dt=dt.length==1 ? 0+dt : dt;
+
+            var x1 = hours + ":" +  minutes + ":" +  seconds + " " + ampm;
+            document.getElementById('ct7').innerHTML = x1;
+            display_c7();
+            }
+            function display_c7(){
+            var refresh=1000; // Refresh rate in milli seconds
+            mytime=setTimeout('display_ct7()',refresh)
+        }
+        display_c7()
+  //sources 
+    // https://www.w3schools.com/howto/howto_js_sidenav.asp
+    // https://github.com/lukePeavey/quotable
+    // https://www.plus2net.com/javascript_tutorial/clock.php
 </script>
    
 </body>
