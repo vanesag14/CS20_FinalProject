@@ -1,7 +1,8 @@
-//dependencies: nodemon, env, express, bcrypt, mongoose, passport, passport-local, 
+//dependencies: nodemon, dotenv, express, ejs, bcrypt, mongoose, passport, passport-local, 
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const dotenv = require('dotenv').config()
 
 //express configuration
 app.use(express.static(__dirname + '/views'));
@@ -22,12 +23,17 @@ const Users = mongoose.model('Users', user)
 app.get('/', (req, res) => {
     res.render('index.html')
 })
-
 app.get('/calendar.html', (req, res) => {
     res.render('calendar.html')
 })
 app.get('/notes.html', (req, res) => {
     res.render('notes.html')
+})
+app.get('/register', (req, res) => {
+    res.render('register.ejs')
+})
+app.get('/login', (req, res) => {
+    res.render('login.ejs')
 })
 
 
@@ -49,7 +55,7 @@ app.listen(process.env.PORT || 3000,
  ****************************************************/
 
 async function mongoConnect() {
-    const url = process.env.MONGODB_URL || "mongodb+srv://Final:jehziz-zomwa1-wYbxut@cluster0.20nue.mongodb.net/Accounts?retryWrites=true&w=majority";
+    const url = process.env.MONGODB_URL || process.env.DB_URL;
 
     //connection to database
     await mongoose.connect(url, {
@@ -61,7 +67,8 @@ async function mongoConnect() {
 //creates the schema for the database
 function createSchema() {
     const user = new mongoose.Schema({
-        userName: String,
+        fName: String,
+        lName: String,
         password: String,
         email: String,
         calendar: {

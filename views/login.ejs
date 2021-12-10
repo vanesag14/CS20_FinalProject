@@ -1,0 +1,26 @@
+<div class="page-content">
+    <div class="sign-up-header">
+        <a style="text-decoration: none;" href="index.html">
+            <img class="logo-pic" src="#" alt="logo">
+        </a>
+        <h1>Sign in to your account</h1>
+    </div>
+
+
+    <div class="forms">
+        <form id="main-form" action="/login" method="POST">
+            <label for="email"></label>
+            <input type="email" name="email" id="email" class="text-input" placeholder="Email address" required>
+            <label for="password"></label>
+            <input type="password" name="password" id="password" class="text-input" placeholder="Password" required>
+            
+
+            <button type="submit" id="sign-in" class="btn signin">SIGN IN</button>
+
+            <h2>Don't have an account?</h2>
+            
+            <!-- this should redirect to register page -->
+            <button type="button" id="create" class="btn signin" onclick="clicked()">CREATE ACCOUNT</button>
+        </form>
+    </div>
+</div>
