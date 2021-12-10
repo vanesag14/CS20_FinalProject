@@ -11,7 +11,7 @@ body {
 
 .sidenav {
   height: 100%;
-  width: 0;
+  width: 250px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -53,6 +53,7 @@ body {
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  margin-left: 250px;
 }
 
 #ct7 {
@@ -82,14 +83,53 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+@media screen and (max-width: 1000px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+  .sidenav {
+  height: 30px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #A5D9FF;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  /* padding: 8px 8px 8px 32px; */
+  padding-top: 1px;
+  text-decoration: none;
+  font-size: 15px;
+  display: inline;
+  color: black;
+}
+
+#main {
+  padding: 16px;
+  margin-left: 50px;
+  padding-top: 30px;
+}
+
+.small {
+    text-align: center;
+}
+
+
+}
+
 </style>
 </head>
 <body>
 
 <div id="mySidenav" class="sidenav">
+<div class="small">
   <a href="index.html">Home</a>
   <a href="pages/calendar.html">Calendar</a>
   <a href="pages/notes.html">Notes</a>
+</div>
 </div>
 
 <div id="main">
@@ -100,8 +140,8 @@ body {
 
 <script>
     get_weather();
-  document.getElementById("mySidenav").style.width = "15%";
-  document.getElementById("main").style.marginLeft = "15%";
+  //document.getElementById("mySidenav").style.width = "250px";
+  //document.getElementById("main").style.marginLeft = "250px";
 
   // weather api
   // I referenced loadFile() from read_json_ajax.html and contray_axax2.html
@@ -167,6 +207,17 @@ body {
     // https://github.com/lukePeavey/quotable
     // https://www.plus2net.com/javascript_tutorial/clock.php
 </script>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("mySidenav");
+      if (x.className === "sidenav") {
+        x.className += " responsive";
+      } else {
+        x.className = "sidenav";
+      }
+    }
+  </script>
    
 </body>
 </html> 
