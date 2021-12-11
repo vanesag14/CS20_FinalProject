@@ -10,7 +10,7 @@ body {
 
 .sidenav {
   height: 100%;
-  width: 0;
+  width: 250px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -40,6 +40,18 @@ body {
 }
 
 
+.lines{
+    background-color: #fff;
+	background-image:
+    linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.11em;
+    resize: none;
+    width: 100%;
+    height:700px;
+    border: none;
+    outline: none;
+}
+
 
 /* .sidenav .closebtn {
   position: absolute;
@@ -52,29 +64,88 @@ body {
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  margin-left: 250px;
+  
 }
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+@media screen and (max-width: 1000px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .sidenav {
+    height: 30px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #A5D9FF;
+    transition: 0.5s;
+    }
+
+    .sidenav a {
+    /* padding: 8px 8px 8px 32px; */
+    padding-top: 1px;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline;
+    color: black;
+    }
+
+    #main {
+    padding: 16px;
+    margin-left: 50px;
+    padding-top: 30px;
+    }
+
+    .small {
+        text-align: center;
+    }
+}
 </style>
 </head>
 <body>
 
 <div id="mySidenav" class="sidenav">
-  <a href="../index.html">Home</a>
-  <a href="calendar.html">Calendar</a>
-  <a href="notes.html">Notes</a>
+    <div class="small">
+        <a href="index.html">Home</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="notes.html">Notes</a>
+        </div>
 </div>
 
 <div id="main">
   <h2>Notes</h2>
+  <div id="row">
+    <textarea class="lines"></textarea>
+    <!-- credits 
+    https://projects.verou.me/css3patterns/#lined-paper -->
+    <!-- <div id="left">
+        <button id="addnotes" type="button">Add Note</button>
+        <div id="notes_list">
+            <div class="notes_list_item">
+                <div class="notes_title">Lecture notes</div>
+                <div class="notes_body">I learned nothing</div>
+                <div class="notes_updated"></div>
+            </div>
+        </div>
+    </div>
+          <div id="right">
+            <input class="title" type=text placeholder="Enter title..">
+            <textarea class="body">I am notes body</textarea>
+              
+        </div>
+  </div> -->
+  
 </div>
 
 <script>
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+//   document.getElementById("mySidenav").style.width = "250px";
+//   document.getElementById("main").style.marginLeft = "250px";
 </script>
    
 </body>
