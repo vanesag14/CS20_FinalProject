@@ -4,8 +4,9 @@
             <img class="logo-pic" src="#" alt="logo">
         </a>
         <h1>    
-            Welcome
-            <%= firstName %>,
+            <% if (firstName != "") { %>
+            <%= firstName %>
+            <% }%>
             Sign in to your account
         </h1>
     </div>

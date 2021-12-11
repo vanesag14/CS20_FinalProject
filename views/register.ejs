@@ -1,3 +1,20 @@
+<head>
+    <title>Register</title>
+    <style>
+        .redPlaceholder::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: red;
+            opacity: 1; /* Firefox */
+        }
+
+        .redPlaceholder:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: red;
+        }
+
+        .redPlaceholder::-ms-input-placeholder { /* Microsoft Edge */
+            color: red;
+        }
+    </style>
+</head>
 <div class="page-content" >
     <div class="sign-up-header">
         <a style="text-decoration: none;" href="/index.html">
@@ -13,8 +30,9 @@
             <input type="text" name="fname" id="first-name" class="text-input" placeholder="First name" required>
             <label for="last-name"></label>
             <input type="text" name="lname" id="last-name" class="text-input" placeholder="Last name" required>
-            <label for="email"></label>
-            <input type="email" name="email" id="email" class="text-input" placeholder="Email address" required>
+            <label for="email">
+            </label>
+            <input type="email" name="email" id="email" class="text-input <%= classRed %>" placeholder="<%= placeHold %>" required>
             <label for="password"></label>
             <input type="password" name="password" id="password" class="text-input" placeholder="Create a password" required>
 
