@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config()
+const bcrypt = require('bcrypt')
 
 //express configuration
 app.use(express.static(__dirname + '/views'));
@@ -16,10 +17,10 @@ mongoConnect()
 const user = createSchema();
 const Users = mongoose.model('Users', user)
 
-/*
-    TODO:
-        have to change the a href for all the files
-*/
+/****************************************************************
+ *   TODO:                .GET                                  *
+ *       have to change the a href for all the files            *
+ ****************************************************************/
 app.get('/', (req, res) => {
     res.render('index.html')
 })
@@ -35,13 +36,45 @@ app.get('/register', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login.ejs')
 })
+//when the user recently registered an account
+//TODO: NEEDS TO CHECK IF USER IS AUTHENTICATED
+var firstN = ""
+app.get('/rlogin', (req, res) => {
+    res.render('login.ejs', { firstName: firstN})
+})
+
+/****************************************************
+ *                     POST                         *
+ ****************************************************/
+app.post('/register', async (req, res) => {
+    try {
+        //generates hashed password
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+
+        //creates user to insert in database
+        const user1 = new Users({
+            fName: req.body.fname,
+            lName: req.body.lname,
+            password: hashedPassword,
+            email: req.body.email
+        })
+        //inserts user into database
+        user1.save()
+        //redirects user to custom login page prompting them to login
+        firstN = req.body.fname
+        res.redirect('/rlogin')
+    } catch { 
+        res.redirect('/register')
+    }
+})
+
 
 
 //TODO:
 //get views to work with css--
 //set up database with ability to add things--
-//implement login system
 //implement registering system
+//implement login system
 //figure out how to take from forms in html into the 
 //then take from database to put into the html
 
@@ -87,10 +120,7 @@ function createSchema() {
             title: String,
             content: [String]
         }],
-        mood: [{
-            date: Number,
-            mood: Number
-        }]
+        greatful: String
     })
 
     return user
