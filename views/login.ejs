@@ -16,8 +16,13 @@
                 Sign in to your account
             </h1>
         </div>
-    
-    
+        
+        <!-- displays error message if there is one -->
+        <div class="error">
+            <% if (messages.error) {%>
+                <%= messages.error %>
+            <% } %>
+        </div>
         <div class="forms">
             <form id="main-form" action="/login" method="POST">
                 <label for="email"></label>
