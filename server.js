@@ -15,7 +15,7 @@ mongoConnect()
 
 //creates schema and collection for db (CONNECTED)
 const user = createSchema();
-const Users = mongoose.model('Users', user)
+//const Users = mongoose.model('Users', user)
 
 // /****************************************************************
 //  *   TODO:                .GET                                  *
@@ -93,7 +93,7 @@ app.get('/', (req, res) => {
 //then take from database to put into the html
 
 
-app.listen(process.env.PORT || 3000, 
+app.listen(process.env.PORT || 3001, 
 	() => console.log("Server is running..."));
 
 
