@@ -10,12 +10,12 @@ app.use(express.static(__dirname + '/views'));
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false}))
 
-// //connection to database
-// mongoConnect()
+//connection to database
+mongoConnect()
 
-// //creates schema and collection for db (CONNECTED)
-// const user = createSchema();
-// const Users = mongoose.model('Users', user)
+//creates schema and collection for db (CONNECTED)
+const user = createSchema();
+const Users = mongoose.model('Users', user)
 
 // /****************************************************************
 //  *   TODO:                .GET                                  *
@@ -101,41 +101,41 @@ app.listen(process.env.PORT || 3000,
  *          Mongoose Database functions             *
  ****************************************************/
 
-// async function mongoConnect() {
-//     const url = process.env.MONGODB_URL || process.env.DB_URL;
+async function mongoConnect() {
+    const url = process.env.MONGODB_URL || process.env.DB_URL;
 
-//     //connection to database
-//     await mongoose.connect(url, {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true
-//     })
-// }
+    //connection to database
+    await mongoose.connect(url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+}
 
-// //creates the schema for the database
-// function createSchema() {
-//     const user = new mongoose.Schema({
-//         fName: String,
-//         lName: String,
-//         password: String,
-//         email: String,
-//         calendar: {
-//             date: Number, 
-//             content: [String]
-//         },
-//         deadlines: [{ 
-//             isChecked: Boolean, 
-//             content: String, 
-//             dueDate: Number 
-//         }],
-//         reminders: [{
-//             content: String
-//         }],
-//         notes: [{
-//             title: String,
-//             content: [String]
-//         }],
-//         greatful: String
-//     })
+//creates the schema for the database
+function createSchema() {
+    const user = new mongoose.Schema({
+        fName: String,
+        lName: String,
+        password: String,
+        email: String,
+        calendar: {
+            date: Number, 
+            content: [String]
+        },
+        deadlines: [{ 
+            isChecked: Boolean, 
+            content: String, 
+            dueDate: Number 
+        }],
+        reminders: [{
+            content: String
+        }],
+        notes: [{
+            title: String,
+            content: [String]
+        }],
+        greatful: String
+    })
 
-//     return user
-// }
+    return user
+}
