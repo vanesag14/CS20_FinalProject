@@ -14,73 +14,73 @@ app.use(express.urlencoded({ extended: false}))
 mongoConnect()
 
 //creates schema and collection for db 
-// const user = createSchema();
-// const Users = mongoose.model('Users', user)
+const user = createSchema();
+const Users = mongoose.model('Users', user)
 
-// // /****************************************************************
-// //  *   TODO:                .GET                                  *
-// //  *       have to change the a href for all the files            *
-// //  ****************************************************************/
-// app.get('/', (req, res) => {
-//     res.render('index.html')
-// })
-// app.get('/calendar.html', (req, res) => {
-//     res.render('calendar.html')
-// })
-// app.get('/notes.html', (req, res) => {
-//     res.render('notes.html')
-// })
-// app.get('/register', (req, res) => {
-//     res.render('register.ejs', { placeHold: "Email Address", classRed: ""})
-// })
-// app.get('/login', (req, res) => {
-//     res.render('login.ejs', { firstName: ""})
-// })
-// //when the user recently registered an account
-// //TODO: app.gets below NEEDS TO CHECK IF USER IS AUTHENTICATED before accessing
-// var firstN = ""
-// app.get('/rlogin', (req, res) => {
-//     res.render('login.ejs', { firstName: "Welcome " + firstN + ","})
-// })
-// app.get('/eregister', (req, res) => {
-//     res.render('register.ejs', { placeHold: "Email Already in Use", classRed: "redPlaceholder"})
-// })
+// /****************************************************************
+//  *   TODO:                .GET                                  *
+//  *       have to change the a href for all the files            *
+//  ****************************************************************/
+app.get('/', (req, res) => {
+    res.render('index.html')
+})
+app.get('/calendar.html', (req, res) => {
+    res.render('calendar.html')
+})
+app.get('/notes.html', (req, res) => {
+    res.render('notes.html')
+})
+app.get('/register', (req, res) => {
+    res.render('register.ejs', { placeHold: "Email Address", classRed: ""})
+})
+app.get('/login', (req, res) => {
+    res.render('login.ejs', { firstName: ""})
+})
+//when the user recently registered an account
+//TODO: app.gets below NEEDS TO CHECK IF USER IS AUTHENTICATED before accessing
+var firstN = ""
+app.get('/rlogin', (req, res) => {
+    res.render('login.ejs', { firstName: "Welcome " + firstN + ","})
+})
+app.get('/eregister', (req, res) => {
+    res.render('register.ejs', { placeHold: "Email Already in Use", classRed: "redPlaceholder"})
+})
 
 
-// // /****************************************************
-// //  *                     POST                         *
-// //  ****************************************************/
-// app.post('/register', async (req, res) => {
+/****************************************************
+ *                     POST                         *
+ ****************************************************/
+app.post('/register', async (req, res) => {
     
-//     //looks for users with the same email address
-//     await Users.find({ email: req.body.email}).exec( async (err, users) => {
-//         //if the email doesnt exist
-//         if (Object.keys(users).length === 0) {
-//             try {
-//                 //generates hashed password
-//                 const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    //looks for users with the same email address
+    await Users.find({ email: req.body.email}).exec( async (err, users) => {
+        //if the email doesnt exist
+        if (Object.keys(users).length === 0) {
+            try {
+                //generates hashed password
+                const hashedPassword = await bcrypt.hash(req.body.password, 10)
         
-//                 //creates user to insert in database
-//                 const user1 = new Users({
-//                     fName: req.body.fname,
-//                     lName: req.body.lname,
-//                     password: hashedPassword,
-//                     email: req.body.email
-//                 })
-//                 //inserts user into database
-//                 user1.save()
+                //creates user to insert in database
+                const user1 = new Users({
+                    fName: req.body.fname,
+                    lName: req.body.lname,
+                    password: hashedPassword,
+                    email: req.body.email
+                })
+                //inserts user into database
+                user1.save()
 
-//                 //redirects user to custom login page prompting them to login
-//                 firstN = req.body.fname
-//                 res.redirect('/rlogin')
-//             } catch { 
-//                 res.redirect('/register')
-//             }
-//         } else { //if the email exist in the database
-//             res.redirect('/eregister')
-//         }
-//     })
-// })
+                //redirects user to custom login page prompting them to login
+                firstN = req.body.fname
+                res.redirect('/rlogin')
+            } catch { 
+                res.redirect('/register')
+            }
+        } else { //if the email exist in the database
+            res.redirect('/eregister')
+        }
+    })
+})
 
 
 
@@ -112,31 +112,31 @@ async function mongoConnect() {
 }
 
 // creates the schema for the database
-// function createSchema() {
+function createSchema() {
     
-//     const user = new mongoose.Schema({
-//         fName: String,
-//         lName: String,
-//         password: String,
-//         email: String,
-//         calendar: {
-//             date: Number, 
-//             content: [String]
-//         },
-//         deadlines: [{ 
-//             isChecked: Boolean, 
-//             content: String, 
-//             dueDate: Number 
-//         }],
-//         reminders: [{
-//             content: String
-//         }],
-//         notes: [{
-//             title: String,
-//             content: [String]
-//         }],
-//         greatful: String
-//     })
+    const user = new mongoose.Schema({
+        fName: String,
+        lName: String,
+        password: String,
+        email: String,
+        calendar: {
+            date: Number, 
+            content: [String]
+        },
+        deadlines: [{ 
+            isChecked: Boolean, 
+            content: String, 
+            dueDate: Number 
+        }],
+        reminders: [{
+            content: String
+        }],
+        notes: [{
+            title: String,
+            content: [String]
+        }],
+        greatful: String
+    })
 
-//     return user
-// }
+    return user
+}
