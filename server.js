@@ -13,9 +13,9 @@ app.use(express.urlencoded({ extended: false}))
 //connection to database
 mongoConnect()
 
-//creates schema and collection for db (CONNECTED)
-const user = createSchema();
-const Users = mongoose.model('Users', user)
+// //creates schema and collection for db (CONNECTED)
+// const user = createSchema();
+// const Users = mongoose.model('Users', user)
 
 // /****************************************************************
 //  *   TODO:                .GET                                  *
@@ -111,31 +111,31 @@ async function mongoConnect() {
     })
 }
 
-//creates the schema for the database
-function createSchema() {
-    const user = new mongoose.Schema({
-        fName: String,
-        lName: String,
-        password: String,
-        email: String,
-        calendar: {
-            date: Number, 
-            content: [String]
-        },
-        deadlines: [{ 
-            isChecked: Boolean, 
-            content: String, 
-            dueDate: Number 
-        }],
-        reminders: [{
-            content: String
-        }],
-        notes: [{
-            title: String,
-            content: [String]
-        }],
-        greatful: String
-    })
+// //creates the schema for the database
+// function createSchema() {
+//     const user = new mongoose.Schema({
+//         fName: String,
+//         lName: String,
+//         password: String,
+//         email: String,
+//         calendar: {
+//             date: Number, 
+//             content: [String]
+//         },
+//         deadlines: [{ 
+//             isChecked: Boolean, 
+//             content: String, 
+//             dueDate: Number 
+//         }],
+//         reminders: [{
+//             content: String
+//         }],
+//         notes: [{
+//             title: String,
+//             content: [String]
+//         }],
+//         greatful: String
+//     })
 
-    return user
-}
+//     return user
+// }
