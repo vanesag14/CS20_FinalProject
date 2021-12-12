@@ -1,14 +1,31 @@
 //dependencies: nodemon, dotenv, express, ejs, bcrypt, mongoose, passport, passport-local, 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const dotenv = require('dotenv').config()
 const bcrypt = require('bcrypt')
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require('express-session')
 
-//express configuration
-app.use(express.static(__dirname + '/views'));
+//sets up passport configuration
+const initializePassport = require('./passport-config')
+initializePassport(passport) 
+
+//more configurations
+app.use(express.static(__dirname + '/views'))
 app.set('view-engine', 'ejs')
-app.use(express.urlencoded({ extended: false}))
+app.use(express.urlencoded({ extended: false})) 
+app.use(flash())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 
 //connection to database
 mongoConnect()
@@ -50,14 +67,22 @@ app.get('/eregister', (req, res) => {
 /****************************************************
  *                     POST                         *
  ****************************************************/
+//goes to home back on successful login
+app.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+}))
+
 app.post('/register', async (req, res) => {
-    
+    //protects against a user inserting two emails with differing cases
+    let lowerEmail = (req.body.email).toLowerCase()
     //looks for users with the same email address
-    await Users.find({ email: req.body.email}).exec( async (err, users) => {
+    await Users.find({ email: lowerEmail}).exec( async (err, users) => {
         //if the email doesnt exist
-        if (Object.keys(users).length === 0) {
+        if (users.length === 0) {
             try {
-                //generates hashed password
+                
                 const hashedPassword = await bcrypt.hash(req.body.password, 10)
         
                 //creates user to insert in database
@@ -65,9 +90,8 @@ app.post('/register', async (req, res) => {
                     fName: req.body.fname,
                     lName: req.body.lname,
                     password: hashedPassword,
-                    email: req.body.email
+                    email: lowerEmail
                 })
-                //inserts user into database
                 user1.save()
 
                 //redirects user to custom login page prompting them to login
@@ -89,6 +113,7 @@ app.post('/register', async (req, res) => {
 //set up database with ability to add things--
 //implement registering system --
 //implement login system
+    //create user authentication system
 //figure out how to take from forms in html into the 
 //then take from database to put into the html
 
