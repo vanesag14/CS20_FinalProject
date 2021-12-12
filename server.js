@@ -1,9 +1,9 @@
 //dependencies: nodemon, dotenv, express, ejs, bcrypt, mongoose, passport, passport-local, 
 const express = require('express')
 const app = express()
-// const mongoose = require('mongoose')
-// const dotenv = require('dotenv').config()
-// const bcrypt = require('bcrypt')
+const mongoose = require('mongoose')
+const dotenv = require('dotenv').config()
+const bcrypt = require('bcrypt')
 
 //express configuration
 app.use(express.static(__dirname + '/views'));
