@@ -41,7 +41,7 @@ const Users = mongoose.model('Users', user)
  *       have to change the a href for all the files            *
  ****************************************************************/
 app.get('/', (req, res) => {
-    res.render('index.html', { title: "" })
+    res.render('index.ejs', { title: "" })
 })
 app.get('/calendar.html', (req, res) => {
     res.render('calendar.html')
@@ -56,7 +56,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: ""})
 })
 app.get('/i', checkNotAuthenticated, (req, res) => {
-    res.render('index.html', { title: " ," + req.user.fname })
+    res.render('index.ejs', { title: " ," + req.user.fname })
 })
 //when the user recently registered an account
 //TODO: app.gets below NEEDS TO CHECK IF USER IS AUTHENTICATED before accessing
