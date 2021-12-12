@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
+const methodOverride = require('method-override') //allows for app.delete to be uesd
 
 //sets up passport configuration
 const initializePassport = require('./passport-config')
@@ -26,6 +27,7 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(methodOverride('_method'))
 
 //connection to database
 mongoConnect()
@@ -47,34 +49,36 @@ app.get('/calendar.html', (req, res) => {
 app.get('/notes.html', (req, res) => {
     res.render('notes.html')
 })
-app.get('/register', (req, res) => {
+app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs', { placeHold: "Email Address", classRed: ""})
 })
-app.get('/login', (req, res) => {
+app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: ""})
 })
 //when the user recently registered an account
 //TODO: app.gets below NEEDS TO CHECK IF USER IS AUTHENTICATED before accessing
 var firstN = ""
-app.get('/rlogin', (req, res) => {
+app.get('/rlogin', checkAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: "Welcome " + firstN + ","})
 })
 app.get('/eregister', (req, res) => {
     res.render('register.ejs', { placeHold: "Email Already in Use", classRed: "redPlaceholder"})
 })
 
-
+app.get('/logout', (req, res) => {
+    res.render('logout.ejs')
+})
 /****************************************************
  *                     POST                         *
  ****************************************************/
 //goes to home back on successful login
-app.post('/login', passport.authenticate('local', {
+app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true
 }))
 
-app.post('/register', async (req, res) => {
+app.post('/register', checkNotAuthenticated, async (req, res) => {
     //protects against a user inserting two emails with differing cases
     let lowerEmail = (req.body.email).toLowerCase()
     //looks for users with the same email address
@@ -106,7 +110,10 @@ app.post('/register', async (req, res) => {
     })
 })
 
-
+app.delete('/logout', (req, res) => {
+    req.logOut()
+    res.redirect('/login') //TODO: or home page
+})
 
 //TODO:
 //get views to work with css--
@@ -121,6 +128,25 @@ app.post('/register', async (req, res) => {
 app.listen(process.env.PORT || 3001, 
 	() => console.log("Server is running..."));
 
+
+/****************************************************
+ *               User Authentication                *
+ ****************************************************/    
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+
+    res.redirect('/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/') //TODO: or wherever they should be redirected to
+    }
+
+    next()
+}
 
 /****************************************************
  *          Mongoose Database functions             *
