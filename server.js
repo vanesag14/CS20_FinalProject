@@ -11,7 +11,7 @@ app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false}))
 
 //connection to database
-mongoConnect()
+//mongoConnect()
 
 //creates schema and collection for db (CONNECTED)
 //const user = createSchema();
