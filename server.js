@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false}))
 mongoConnect()
 
 //creates schema and collection for db (CONNECTED)
-const user = createSchema();
+//const user = createSchema();
 //const Users = mongoose.model('Users', user)
 
 // /****************************************************************
