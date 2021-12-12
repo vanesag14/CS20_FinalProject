@@ -3,7 +3,7 @@
 	
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="style-week.css">
+		<link rel="stylesheet" href="style-week2.css">
 		
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,201 +39,116 @@
 				
 				<h3 style="padding-left: 20px; font-size: 28px"> DECEMBER 2021</h3>
 			
-					<div class="to-do"> TO-DO 
-						<div class="checkbox"> 
-						<form>
-							<input type="checkbox" id="checkbox1" 
-							onclick="strikeThrough(this.id, document.getElementById('todo1').id);"> 
-							<input type="text" class="todolist" id="todo1"> <br> <br>
-
-
-							<input type="checkbox" id="checkbox2"
-							onclick="strikeThrough(this.id, document.getElementById('todo2').id);"> 
-							<input type="text" class="todolist" id="todo2"> <br> <br>
-
-							<input type="checkbox" id="checkbox3"
-							onclick="strikeThrough(this.id, document.getElementById('todo3').id);"> 
-							<input type="text" class="todolist" id="todo3"> <br> <br>
-
-							<input type="checkbox" id="checkbox4"
-							onclick="strikeThrough(this.id, document.getElementById('todo4').id);"> 
-							<input type="text" class="todolist" id="todo4"> <br> <br>
-
-							<input type="checkbox" id="checkbox5"
-							onclick="strikeThrough(this.id, document.getElementById('todo5').id);"> 
-							<input type="text" class="todolist" id="todo5"> <br> <br>
-
-							<input type="checkbox" id="checkbox6"
-							onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
-							<input type="text" class="todolist" id="todo6"> <br> <br>
-
-						</form>
-						</div>
-						
-					</div>
+			
 				
-					<div class="Weekdays"> 
+				<div class="bigboybox">	
+
+
+					<div class="Weekdays" id="weekdays-1"> 
+
+
 						<div class="weekday-box">
 							<div id="HASH">
-								<span id="time-HASH" class="smalltext"><strong>MON</strong></span>
+								<span id="time-HASH" class="smalltext" ><strong>MON</strong></span>
 								<span class="ios-circle">12.06</span>
 							</div>
 
 							<form>
-									<input type="text" class="input" style="border: #fff; border-top: 
-									solid 1px; border-bottom: solid 1px #DDDDDD"> <br>
-									<input type="text" class="input"> <br>
-									<input type="text" class="input"> <br>
-									<input type="text" class="input"> <br>
-									<input type="text" class="input"> <br>
-									<input type="text" class="input"> <br>
+									<div id="mon1-parent"><input type="checkbox" class="row-box"><input type="text" class="input" style="border: #fff; border-top: 
+									solid 1px; border-bottom: solid 1px #DDDDDD"><br></div>
+									<input type="checkbox" class="row-box"><input type="text" class="input"><br>
+									<input type="checkbox" class="row-box"><input type="text" class="input"><br>
+									<input type="checkbox" class="row-box"><input type="text" class="input"><br>
+									<input type="checkbox" class="row-box"><input type="text" class="input"><br>
+									<input type="checkbox" class="row-box"><input type="text" class="input"><br>
+									
 							</form>
 						</div>
-						<div class="weekday-box">
-							<div id="HASH">
-								<span id="time-HASH" class="smalltext"><strong>THU</strong></span>
-								<span class="ios-circle">12.09</span>
-							</div>
-							<form>
-								<input type="text" class="input" style="border: #fff; border-top: 
-									solid 1px; border-bottom: solid 1px #DDDDDD"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
-							</form>
-						</div>	
-					</div>
-
-					<div class="Weekdays"> 
+					
 						<div class="weekday-box">
 							<div id="HASH">
 								<span id="time-HASH" class="smalltext"><strong>TUE</strong></span>
 								<span class="ios-circle">12.07</span>
 							</div>
 							<form>
-								<input type="text" class="input" style="border: #fff; border-top: 
+								<input type="checkbox" class="row-box"><input type="text" class="input" style="border: #fff; border-top: 
 									solid 1px; border-bottom: solid 1px #DDDDDD"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
+								
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
 							</form>
 						</div>
-						<div class="weekday-box">
+
+						<div class="weekday-box" id="today">
+							<div id="HASH">
+								<span id="wed-day" class="smalltext" style="color:#60a9dd"><strong>WED</strong></span>
+								<span class="today" style="color:#60a9dd">12.08</span>
+							</div>
+
+
+							<form>
+							
+									<input type="checkbox" class="row-box"><input type="text" class="input" id="wed1" style="border: #fff; border-top: 
+									solid 1px #60a9dd; border-bottom: solid 1px #DDDDDD"> <br>
+					
+									<input type="checkbox" class="row-box"><input type="text" class="input" id="wed2"/> 
+									<!-- <input type="checkbox" id="wed-box-2" class="row-box" 
+									onclick="strikeThrough(this.id, document.getElementById('wed2').id);"/>  -->
+									<br>
+									<input type="checkbox" class="row-box"><input type="text" class="input" id="wed3"> <br>
+									<input type="checkbox" class="row-box"><input type="text" class="input" id="wed4"> <br>
+									<input type="checkbox" class="row-box"><input type="text" class="input" id="wed5"><br>
+									<input type="checkbox" class="row-box"><input type="text" class="input" id="wed6"><br>	
+								
+							</form> 
+						</div>
+
+					</div>
+
+				
+				
+					<div class="Weekdays" id="weekdays-2"> 
+
+						<div class="weekday-box" id="column2-box1">
+							<div id="HASH">
+								<span id="time-HASH" class="smalltext"><strong>THU</strong></span>
+								<span class="ios-circle">12.09</span>
+							</div>
+							<form>
+								<input type="checkbox" class="row-box"><input type="text" class="input" style="border: #fff; border-top: 
+									solid 1px; border-bottom: solid 1px #DDDDDD"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+							</form>
+						</div>
+
+						<div class="weekday-box" id="column2-box2">
 							<div id="HASH">
 								<span id="time-HASH" class="smalltext"><strong>FRI</strong></span>
 								<span class="ios-circle">12.10</span>
 							</div>
 							<form>
-								<input type="text" class="input" style="border: #fff; border-top: 
+								<input type="checkbox" class="row-box"><input type="text" class="input" style="border: #fff; border-top: 
 									solid 1px; border-bottom: solid 1px #DDDDDD"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
-								<input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
+								<input type="checkbox" class="row-box"><input type="text" class="input"> <br>
 							</form>
 						</div>
-					</div>
-					
-					<div class="reminders" style="color:#fff; text-align: center"> REMINDERS
-						<form>
 
-							<ul>
-								<li>
-									<span><input type="text" class="input-reminders" id="input1" 
-									onclick="textboxFocus(this.id);"> <br></span>
-								</li>
-								<li>
-									<span><input type="text" class="input-reminders" id="input2"
-									onclick="textboxFocus(this.id);"> <br></span>
-								</li>
-								<li>
-									<span><input type="text" class="input-reminders" id="input3"
-									onclick="textboxFocus(this.id);"> <br></span>
-								</li>
-								<li>
-									<span><input type="text" class="input-reminders" id="input4"
-									onclick="textboxFocus(this.id);"> <br></span>
-								</li>
-								
-								
-							
-							</ul>
-						</form>
-				
-					</div>
-				
-					<div class="Weekdays"> 
-						<div class="weekday-box">
-							<div id="HASH">
-								<span id="wed-day" class="smalltext" style="color:#60a9dd"><strong>WED</strong></span>
-								<span class="date" style="color:#60a9dd">12.08</span>
-							</div>
+						<div class="problematic-box">
 
-
-							<form>
-								<div>
-									<input type="text" class="input" id="wed1" style="border: #fff; border-top: 
-									solid 1px #60a9dd; border-bottom: solid 1px #DDDDDD"> 
-									<!-- <input type="checkbox" id="wed-box-1" class="row-box" 
-									onclick="strikeThrough(this.id, document.getElementById('wed1').id);"/>  -->
-									<br>
-								</div>
-
-								<div class="parent">
-									<input type="text" class="input" id="wed2"/> 
-									<input type="checkbox" id="wed-box-2" class="row-box" 
-									onclick="strikeThrough(this.id, document.getElementById('wed2').id);"/> 
-									<br>
-								</div>
-								
-								<div >
-									<input type="text" class="input" id="wed3"> 
-									<!-- <input type="checkbox" id="wed-box-3" class="row-box" 
-									onclick="strikeThrough(this.id, document.getElementById('wed3').id);"/>  -->
-									<br>
-								</div>
-								
-								<div>
-									<input type="text" class="input" id="wed4"> 
-									<!-- <input type="checkbox" id="wed-box-4" class="row-box" 
-									onclick="strikeThrough(this.id, document.getElementById('wed4').id);"/>  -->
-									<br>
-								</div>
-								
-								<div>
-									<input type="text" class="input" id="wed5"> 
-									<!-- <input type="checkbox" id="wed-box-5" class="row-box" 
-									onclick="strikeThrough(this.id, document.getElementById('wed5').id);"/>  -->
-									<br>
-								</div>
-							
-								<div > 
-									<input type="text" class="input" id="wed6">
-									<!-- <input type="checkbox" id="wed-box-5" class="row-box" 
-									onclick="strikeThrough(this.id, document.getElementById('wed5').id);"/>   -->
-									<br>
-								</div>
-								<div > 
-									<input type="text" class="input" id="wed7">
-									<!-- <input type="checkbox" id="wed-box-5" class="row-box" 
-									onclick="strikeThrough(this.id, document.getElementById('wed5').id);"/>   -->
-									<br>
-								</div>
-								
-								
-							</form> 
-					</div>
-
-						<div class="Weekend">
-							
-							<div class="weekend-box">
+							<div class="weekend-box" id="column2-box3">
 								<div id="HASH">
-									<span id="time-HASH" class="smalltext"><strong>SAT</strong></span>
+									<span id="time-HASH" class="smalltext2"><strong>SAT</strong></span>
 									<span class="ios-circle">12.11</span>
 								</div>
 								<form>
@@ -246,11 +161,12 @@
 									<input type="text" class="input-weekend"> <br>
 								</form>
 							</div>
-								<div class="weekend-box">
-									<div id="HASH">
-										<span id="time-HASH" class="smalltext"><strong>SUN</strong></span>
-										<span class="ios-circle">12.12</span>
-									</div>
+
+							<div class="weekend-box" id="column2-box4">
+								<div id="HASH">
+									<span id="time-HASH" class="smalltext2"><strong>SUN</strong></span>
+									<span class="ios-circle">12.12</span>
+								</div>
 								<form>
 									<input type="text" class="input-weekend" style="border: #fff; border-top: 
 									solid 1px; border-bottom: solid 1px #DDDDDD"> <br>
@@ -259,13 +175,114 @@
 									<input type="text" class="input-weekend"> <br>
 									<input type="text" class="input-weekend"> <br>
 									<input type="text" class="input-weekend"> <br>
-									
 								</form>
+
 							</div>
-							
+
 						</div>
+							
+						
 
 					</div>
+
+					<div class="Weekdays" id="weekdays-3"> 
+						<!-- <div style="text-align: center;">REMINDERS</div> -->
+
+						<div> 
+							<div class="extras"  id="reminders" style="color:#fff; text-align: center"> REMINDERS
+								<form>
+		
+									<ul>
+										<li>
+											<span><input type="text" class="input-reminders" id="input1" 
+											onclick="textboxFocus(this.id);"> <br></span>
+										</li>
+										<li>
+											<span><input type="text" class="input-reminders" id="input2"
+											onclick="textboxFocus(this.id);"> <br></span>
+										</li>
+										<li>
+											<span><input type="text" class="input-reminders" id="input3"
+											onclick="textboxFocus(this.id);"> <br></span>
+										</li>
+										<li>
+											<span><input type="text" class="input-reminders" id="input4"
+											onclick="textboxFocus(this.id);"> <br></span>
+										</li>
+										
+										
+									
+									</ul>
+								</form>
+						
+							</div>
+						
+							<div class="extras" id="deadlines"> DEADLINES
+
+								<div class="checkbox"> 
+								<form>
+									<input type="checkbox" id="checkbox1" 
+									onclick="strikeThrough(this.id, document.getElementById('todo1').id);"> 
+									<input type="text" class="todolist" id="todo1"> 
+									<input type="date" class="date"><br> <br>
+		
+									<input type="checkbox" id="checkbox2"
+									onclick="strikeThrough(this.id, document.getElementById('todo2').id);"> 
+									<input type="text" class="todolist" id="todo2"> 
+									<input type="date" class="date"><br> <br>
+		
+									<input type="checkbox" id="checkbox3"
+									onclick="strikeThrough(this.id, document.getElementById('todo3').id);"> 
+									<input type="text" class="todolist" id="todo3"> 
+									<input type="date" class="date"><br> <br>
+		
+									<input type="checkbox" id="checkbox4"
+									onclick="strikeThrough(this.id, document.getElementById('todo4').id);"> 
+									<input type="text" class="todolist" id="todo4"> 
+									<input type="date" class="date"><br> <br>
+		
+									<input type="checkbox" id="checkbox5"
+									onclick="strikeThrough(this.id, document.getElementById('todo5').id);"> 
+									<input type="text" class="todolist" id="todo5"> 
+									<input type="date" class="date"><br> <br>
+		
+									<input type="checkbox" id="checkbox6"
+									onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
+									<input type="text" class="todolist" id="todo6"> 
+									<input type="date" class="date"><br> <br>
+
+									<input type="checkbox" id="checkbox7"
+									onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
+									<input type="text" class="todolist" id="todo7"> 
+									<input type="date" class="date"><br> <br>
+
+									<input type="checkbox" id="checkbox8"
+									onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
+									<input type="text" class="todolist" id="todo8"> 
+									<input type="date" class="date"><br> <br>
+
+									<input type="checkbox" id="checkbox9"
+									onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
+									<input type="text" class="todolist" id="todo9"> 
+									<input type="date" class="date"><br> <br>
+
+									<input type="checkbox" id="checkbox10"
+									onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
+									<input type="text" class="todolist" id="todo10"> 
+									<input type="date" class="date"><br> <br>
+		
+								</form>
+								</div>
+								
+							</div>
+						</div>
+						
+
+					</div>
+
+
+
+				</div>	
 				
 			</article>
 		  	
