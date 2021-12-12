@@ -36,12 +36,12 @@ mongoConnect()
 const user = createSchema();
 const Users = mongoose.model('Users', user)
 
-// /****************************************************************
-//  *   TODO:                .GET                                  *
-//  *       have to change the a href for all the files            *
-//  ****************************************************************/
+/****************************************************************
+ *   TODO:                .GET                                  *
+ *       have to change the a href for all the files            *
+ ****************************************************************/
 app.get('/', (req, res) => {
-    res.render('index.html')
+    res.render('index.html', { title: "" })
 })
 app.get('/calendar.html', (req, res) => {
     res.render('calendar.html')
@@ -54,6 +54,9 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
 })
 app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: ""})
+})
+app.get('/i', checkNotAuthenticated, (req, res) => {
+    res.render('index.html', { title: " ," + req.user.fname })
 })
 //when the user recently registered an account
 //TODO: app.gets below NEEDS TO CHECK IF USER IS AUTHENTICATED before accessing
@@ -73,7 +76,7 @@ app.get('/logout', (req, res) => {
  ****************************************************/
 //goes to home back on successful login
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/i',
     failureRedirect: '/login',
     failureFlash: true
 }))
@@ -119,8 +122,8 @@ app.delete('/logout', (req, res) => {
 //get views to work with css--
 //set up database with ability to add things--
 //implement registering system --
-//implement login system
-    //create user authentication system
+//implement login system--
+    //create user authentication system--
 //figure out how to take from forms in html into the 
 //then take from database to put into the html
 
