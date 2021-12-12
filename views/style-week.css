@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "UTF-48";
 /* CSS Document */
 
 
@@ -155,7 +155,7 @@ input[type='text'] {
 
 
 /* Weekend */
-.Weekend {
+/* .Weekend {
 
 	margin-top: 0%;
 	display: flex;
@@ -164,7 +164,7 @@ input[type='text'] {
 	padding-left: 10px;
 	
 
-}
+} */
 
 .problematic-box {
 	
@@ -179,13 +179,13 @@ input[type='text'] {
 .weekend-box {
 	
 
-	flex-basis: 49%;
+	flex-basis: 48%;
 	background:#fff;
 	border-radius: 10px;
-	margin-bottom: 5.5%;
+
 	box-sizing: border-box;
 	transition: 0.4s;
-	padding: 12px;
+	padding: 10px 10px 15px 0px;
 	height: 169px;
 
 	
@@ -207,7 +207,7 @@ input[type='text'] {
 }
 
 .input-weekend {
-	width: calc(100% - 5px);
+	width: calc(100% - 30px);
 	border: #fff;
 	border-bottom: solid 1px #DDDDDD;
 }
@@ -228,18 +228,6 @@ input[type='text'] {
 
 }
 
-.text-container {
-	display: inline-block;
-	position: relative;
-	overflow: hidden;
-	width: calc(100% + 5px);
-  }
-  .btn {
-	position: absolute;
-	left: 300px;
-	top: 1px;
-	
-  }
 
 
 /* Checkboxes */
@@ -269,7 +257,9 @@ input#wed-box-3 {
 #mon1-parent:hover .row-box {
 	visibility: visible;
 }
-/* make a function using the jquery hover so that when the parent is hovered, the corresponing row box shows */
+#mon-parent2:hover .row-box {
+	visibility: visible;
+}
 
 
 /* Extras */
