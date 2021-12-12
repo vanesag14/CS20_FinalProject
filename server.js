@@ -113,6 +113,7 @@ async function mongoConnect() {
 
 // creates the schema for the database
 function createSchema() {
+    
     const user = new mongoose.Schema({
         fName: String,
         lName: String,
