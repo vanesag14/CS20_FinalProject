@@ -2,7 +2,8 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-//const dotenv = require('dotenv').config()
+const dotenv = require('dotenv').config()
+//dotenv.config()
 const bcrypt = require('bcrypt')
 
 //express configuration
