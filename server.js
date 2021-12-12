@@ -101,15 +101,15 @@ app.listen(process.env.PORT || 3001,
  *          Mongoose Database functions             *
  ****************************************************/
 
-async function mongoConnect() {
-    const url = process.env.MONGODB_URL || process.env.DB_URL;
+// async function mongoConnect() {
+//     const url = process.env.MONGODB_URL || process.env.DB_URL;
 
-    //connection to database
-    await mongoose.connect(url, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-}
+//     //connection to database
+//     await mongoose.connect(url, {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     })
+// }
 
 // creates the schema for the database
 // function createSchema() {
