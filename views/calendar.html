@@ -4,10 +4,12 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="style-week.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 		
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+		
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="jquery.dirty.js"></script>
@@ -17,6 +19,20 @@
 				margin-left: 250px;
 			}
 
+			@media (max-width: 800px) {
+				#main {
+					margin-left: 0px;
+				}
+			}
+
+			@media (max-width: 1000px) {
+				#main {
+				padding: 16px;
+				padding-top: 30px;
+				margin-left: 0px;
+				transition: 0.5s;
+				}
+			}
 			
 		</style>
 		
@@ -41,6 +57,7 @@
 				<ul>
 					<span><li class="week"><a href="calendar.html">WEEK </a></li></span>
 					<span><li class="month"><a href="month.html">MONTH</a></li></span>
+					 <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i> 
 					
 				</ul>
 			</div>
@@ -55,7 +72,7 @@
 					<button type="button" id="btn">SAVE</button>
 				</div>
 			
-				<!-- console.log('hello') -->
+				
 				<div class="bigboybox">	
 
 
