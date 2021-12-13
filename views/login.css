@@ -14,6 +14,11 @@ body {
     align-items: center;
 }
 
+h1 {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+}
+
 .forms .text-input,
 .forms .btn,
 .forms .checkbox{
