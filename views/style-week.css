@@ -10,7 +10,7 @@ body {
 
 .sidenav {
   height: 100%;
-  width: 0;
+  width: 250px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -44,7 +44,7 @@ body {
 #main {
 	transition: margin-left .5s;
 	padding: 16px;
-	margin-left: 250px;
+	
 }
 
 
@@ -183,18 +183,6 @@ input[type='text'] {
 	margin-left: 15px;
 }
 
-
-/* Weekend */
-/* .Weekend {
-
-	margin-top: 0%;
-	display: flex;
-	justify-content: flex-start;
-	color: #000;
-	padding-left: 10px;
-	
-
-} */
 
 .problematic-box {
 	
@@ -388,7 +376,7 @@ span {
   .sidenav a {font-size: 18px;}
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 	.bigboybox {
 			display: flex;
 			flex-direction: column;	
@@ -415,6 +403,7 @@ span {
   }
 
 @media screen and (max-width: 1000px) {
+
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
     .sidenav {
@@ -426,6 +415,7 @@ span {
     left: 0;
     background-color: #A5D9FF;
     transition: 0.5s;
+	text-align: center;
     }
 
     .sidenav a {
@@ -439,8 +429,9 @@ span {
 
     #main {
     padding: 16px;
-    margin-left: 50px;
+    margin-left: 0px;
     padding-top: 30px;
+	margin-left: 0px;
     }
 
     .small {
