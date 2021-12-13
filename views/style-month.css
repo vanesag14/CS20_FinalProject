@@ -177,13 +177,16 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .days div {
-	border: 5px;
+	  border: 5px;
+    padding: 5px 6px;
     font-size: 1.4rem;
     margin: 0.3rem;
-    width: calc(85% / 7);
+    width: calc(75% / 7);
     height: 5rem;
     display: flex;
     justify-content: center;
@@ -209,6 +212,7 @@ body {
 
 
 /* Mobile Friendly */
+
 
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
@@ -246,8 +250,18 @@ body {
           padding-top: 30px;
           margin-left: 0px;
           }
+      
+      .days div {
+        width: calc(65% / 7);
+      }
   
   
+  }
+
+  @media screen and (max-width: 630px) {
+    .days div {
+      width: calc(55% / 7);
+    }
   }
 
   @media screen and (max-width: 1000px) {
@@ -280,6 +294,5 @@ body {
         padding-top: 30px;
         margin-left: 0px;
         }
-  
   
   }
