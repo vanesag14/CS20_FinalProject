@@ -1,0 +1,362 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	transition: background-color .5s;
+}
+
+.mainContainer {
+	width:100%;
+	height: 100%;
+}
+
+.sidenav {
+	float: left;
+	display: inline-block;
+	height: 100%;
+	width: 200px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #A5D9FF;
+	transition: 0.5s;
+	padding-top: 200px;
+}
+
+.sidenav a {
+  /* padding: 8px 8px 8px 32px; */
+  padding-top: 50px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.sidenav a:hover {
+  color: white;
+}
+
+.sidenav a:active {
+  color: white;
+}
+
+/* .sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+} */
+
+#main {
+	float: left;
+	display: inline-block;
+	width: 80%;
+	/* width: -moz-calc(100% - 100px);
+    width: -webkit-calc(100% - 100px);
+    width: calc(100% - 100px);  */
+  	padding: 3px 20px;
+	margin-left: 225px;
+	/* margin-right: 100px; */
+}
+
+/* Week / Month Buttons */
+#main .calnav ul li {
+	
+	list-style: none;
+	display: inline-block;
+	padding: 8px 20px;
+	margin-bottom: 20px;
+	
+
+}
+
+.calnav ul {
+	margin-bottom: 0px;
+}
+
+#main .calnav ul li a {
+	text-decoration: none;
+	color: #000;
+}
+
+.calnav .monthHeader {
+	border: solid 2px;
+	border-radius: 12px;
+	
+}
+
+/* input[type='text'] { 
+	font-size: 12px;
+	font-family: 'Montserrat', sans-serif;; 
+} */
+
+
+/* Calendar */
+.schedule {
+	padding: 10px;
+	display: block;
+	background: #F5F5F5;
+	border: solid #F5F5F5;
+	border-radius: 10px;
+
+	
+}
+
+/* TRY NEW THINGS HERE */
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+  } */
+  .calendar {
+    width: 100%;
+    height: 800px;
+    background-color: white;
+    box-shadow: 0 0.5rem 3rem rgba(114, 33, 33, 0.4);
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+   .month {
+    width: 92%;
+    height: 12rem;
+    background-color: #A5D9FF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    text-align: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  } 
+  
+  .month i {
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+  
+  .month h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .month p {
+    font-size: 1.6rem;
+  }
+  
+  .weekdays {
+	width: 100%;
+    height: 5rem;
+    padding: 0 0.4rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .weekdays div {
+	margin: auto;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    width: calc(44.2rem / 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  }
+  
+  .days {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .days div {
+	border: 5px;
+    font-size: 1.4rem;
+    margin: 0.3rem;
+    width: calc(85% / 7);
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .2s;
+  }
+  
+  .days div:hover:not(.today) {
+    background-color: #262626;
+    border: 0.2rem solid #777;
+    cursor: pointer;
+  }
+  
+  .prev-date,
+  .next-date {
+    opacity: 0.5;
+  }
+  
+  .today {
+    background-color: #A5D9FF;
+  }
+  
+
+/*Vanessa's stuff*/
+
+/* 
+.Weekdays {
+	margin-top: 0%;
+	display: flex;
+	justify-content: space-between;
+	color: #000;
+	width: 74%;
+	padding-left: 10px;
+}
+
+
+.Weekend {
+	margin-top: 0%;
+	display: flex;
+	justify-content: space-between;
+	color: #000;
+	width: 48%;
+	padding-left: 10px;
+	
+	
+}
+
+.weekday-box {
+	flex-basis: 40%;
+	background:#fff;
+	border-radius: 10px;
+	margin-bottom: 3%;
+	box-sizing: border-box;
+	transition: 0.4s;
+	padding: 15px;
+}
+
+.weekday-box h3 {
+	margin: 0;
+}
+
+.weekend-box {
+	
+	flex-basis: 30%;
+	background:#fff;
+	border-radius: 10px;
+	margin-bottom: 5.5%;
+	box-sizing: border-box;
+	transition: 0.4s;
+	padding: 12px;
+}
+
+.weekend-box h3 {
+	margin: 0;
+}
+
+.input {
+	width: 365px;
+	border: #fff;
+	border-bottom: solid 1px #DDDDDD;
+}
+
+.input-weekend {
+	width: 170px;
+	border: #fff;
+	border-bottom: solid 1px #DDDDDD;
+}
+
+#HASH {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 8px;
+} */
+
+/* Checkboxes */
+/* input#wed-box-2 {
+    position: absolute;
+    right: 3px;
+    top: 1px;
+}
+.parent{
+	position: absolute;
+}
+
+.row-box {
+	visibility: hidden;
+}
+
+.parent:hover .row-box {
+	visibility: visible;
+} */
+
+/* TO DO
+.to-do {
+	border: solid 5px #CFEAFF;
+	background: #CFEAFF;
+	width: 20%;
+	float: right;
+	height: 350px;
+	margin-right: 15px;
+	border-radius: 10px;
+	text-align: center;
+	padding-top: 10px;
+} 
+
+.checkbox {
+	padding-top: 15px;
+}
+
+.todolist {
+	height: 30px;
+	background: #E9F4FD;
+	border: #E9F4FD;
+	border-radius: 5px;
+}
+
+/* Reminders */
+/* .reminders {
+	
+	width: 21%;
+	float: right;
+	height: 170px;
+	margin-right: 15px;
+	border-radius: 10px;
+	background: #202020;
+	padding-top: 10px;
+	
+}
+
+.input-reminders {
+	width: 165px;
+	border: #fff;
+	border-bottom: solid 1px #3E3E3E; 
+	background: #3E3E3E;
+	border-radius: 3px;
+	padding: 5px;
+}
+
+div.reminders li {
+	margin-top: 5px;
+	padding-left: 0px;
+	list-style-type: circle;
+	position: relative;
+    left: -5px;
+}
+
+span {
+	position: relative;
+        left: -8px;
+} */
+/* Mobile Friendly */
+/* 
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}  */

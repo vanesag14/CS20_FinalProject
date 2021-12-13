@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="style-month.css">
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	</head>
+	
+<!-- ON calendar add to-do list entries rename as deadlines
+ Vanessa will add dates to to-do list entries -->
+	<body>
+        <div class = "mainContainer"?>
+
+		<!--Navigation bar-->	
+		<div id="mySidenav" class="sidenav">
+			<a href="../index.html">HOME</a>
+			<a href="calendar.html" style="color:#fff;">CALENDAR</a>
+			<a href="notes.html">NOTES</a>
+		</div>
+
+
+		<div id="main">
+			
+			<div class="calnav">
+				<ul>
+					<h3></h3><li class="weekHeader"><a href="calendar.html">WEEK </a></li>
+					<li class="monthHeader"><a href="month.html">MONTH</a></li>
+				</ul>
+			</div>
+
+			
+			<article class="schedule"> 
+				
+				<h3 style="padding-left: 20px; font-size: 28px"> DECEMBER 2021</h3>
+
+                    <div class="calendar">
+                      <div class="month">
+                        <i class="fas fa-angle-left prev"></i>
+                        <div class="date">
+                          <h1></h1>
+                          <p></p>
+                        </div>
+                        <i class="fas fa-angle-right next"></i>
+                      </div>
+                      <div class="weekdays">
+                        <div>SUN</div>
+                        <div>MON</div>
+                        <div>TUE</div>
+                        <div>WED</div>
+                        <div>THU</div>
+                        <div>FRI</div>
+                        <div>SAT</div>
+                      </div>
+                      <div class="days"></div>
+                    </div>
+              
+                  <script src="month.js"></script>
+                </div>
+
+                </article> 
+			</div>
+        </div>
+
+		<!-- <script language="javascript">
+
+			document.getElementById("mySidenav").style.width = "250px";
+			document.getElementById("main").style.marginLeft = "250px";
+		  
+
+			// Function to change text color for Reminders
+			function textboxFocus(x){  
+				document.getElementById(x).style.color = "white"; 
+			}
+
+			
+			// Function to strikethrough when checked and unstrike when unchecked
+			function strikeThrough(x,y) {
+				
+				//console.log(x);
+				//console.log(y);
+
+				$("#"+x).change(function() {
+				if(this.checked) {
+					//I am checked
+					document.getElementById(y).style.color = "#B2B3B3";
+					document.getElementById(y).style.textDecoration = "line-through";
+				}else{
+					//I'm not checked
+					document.getElementById(y).style.color = "black";
+					document.getElementById(y).style.textDecoration = "none";
+				}
+				});
+			}
+		</script> -->
+
+	</body>
+	
+</html> 
