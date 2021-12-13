@@ -84,6 +84,10 @@ input[type=submit] {
     align-content: space-around;
 }
 
+.bigbox > div {
+        margin: 8px;
+    }
+
 .box {
     border: solid 2px;
     width: 30%;
@@ -132,6 +136,10 @@ input[type=submit] {
         justify-content: space-between;
         align-content: space-around;
         
+    }
+
+    .bigbox > div {
+        margin: 8px;
     }
 
     .box {
@@ -202,7 +210,7 @@ input[type=submit] {
 
 <div id="main">
     <div id="date-save">
-    <h2 style="width: 80%">Notes</h2>
+    <h2 style="width: 80%; display: inline-block;">Notes</h2>
     <button type="button" id="btn">SAVE</button>
     </div>
 
@@ -222,7 +230,7 @@ input[type=submit] {
                 <textarea class="lines"></textarea>
             </div>
         </div>
-        <div style="color: #fff"> Empty</div>
+        
         <div class="bigbox"> 
             <div class="box">
                 <h4 class="box2"><input type="text" class="input" value="Notes Title 4"></h4>
