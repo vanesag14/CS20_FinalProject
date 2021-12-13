@@ -1,7 +1,86 @@
 body {
+    margin-top: 10%;
     background-color: #A5D9FF;
+    font-family: "Montserrat", sans-serif;
+}
+.forms {
+    margin-top: 20px;
+    
+}
+.forms form {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.page-content {
-    align-content: center;
+.forms .text-input,
+.forms .btn,
+.forms .checkbox{
+    display: block;
+}
+
+.forms .text-input {
+    margin-bottom: 20px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 15px;
+    padding-right: 17%;
+    background-color: white;
+}
+
+.forms .btn {
+    margin-bottom: 20px;
+    padding: 15px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #3A3332;
+    border-radius: 20px;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+.forms .btn:hover{
+    border:solid #E55F7f 2px;
+	background: #E55F7F;
+    color: white;
+}
+
+#sign-in.btn.signin {
+    background-color: #3A3332; 
+    border: #3A3332 solid 1px; 
+    padding-left: 12%; 
+    padding-right: 12%; 
+    color: white;
+}
+
+#create.btn.signin {
+    background-color: white; 
+    border: #3A3332 solid 1px; 
+    padding-right: 9%; 
+    padding-left: 9%; 
+    color: #3A3332;
+}
+
+#create.btn.signin:hover {
+	background: black;
+    border:solid black 1px;
+    color: white;
+    cursor: pointer;
+}
+
+.forms #sign-in {
+    background-color: white;
+    border: #3A3332 solid 1px;
+    padding-right: 12%;
+    padding-left: 12%;
+    color: #3A3332;
+    font-size: .9em;
+    cursor: pointer;
+}
+.forms #sign-in:hover {
+    border:solid black 1px;
+	background: black;
+    color: white;
+    cursor: pointer;
 }
