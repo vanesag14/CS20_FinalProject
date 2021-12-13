@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	  font-family: "Montserrat", sans-serif;
+	  transition: background-color .5s;
+	}
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #A5D9FF;
+  transition: 0.5s;
+  padding-top: 200px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.submit {
+    float: right;
+    
+}
+
+input[type=submit] {
+    background-color: #e7e7e7; 
+    color: black;
+    padding: 5px 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: none;
+}
+.sidenav a {
+  /* padding: 8px 8px 8px 32px; */
+  padding-top: 50px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.sidenav a:hover {
+  color: white;
+}
+
+.sidenav a:active {
+  color: white;
+}
+
+
+.lines{
+    background-color: #fff;
+	background-image:
+    linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.11em;
+    resize: none;
+    width: calc(100% - 30px);
+    height:500px;
+    border: none;
+    outline: none;
+    margin: auto;
+    margin-left: 15px;
+    
+    
+  
+
+
+}
+
+.bigbox {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.box {
+    border: solid 2px;
+    width: 30%;
+}
+.box2 {
+    padding-left: 20px;
+    
+}
+
+.input {
+    border: none;
+    font-family: inherit;
+    width: calc(100% - 30px);
+}
+
+#date-save {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	
+}
+#btn {
+	font-family: inherit;
+	width: 8%;
+	height: 38px;
+	border-radius: 10px;
+	background: #fff;
+	border: solid 1px;
+}
+
+#btn:hover {
+	cursor: pointer;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+  margin-left: 250px;
+  
+}
+
+@media (max-width: 700px) {
+    .bigbox {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: space-around;
+        
+    }
+
+    .box {
+        width: 90%;
+        margin: auto;
+        flex-basis: 10%;
+    }
+
+    .box2 {
+    padding-left: 20px;
+    
+    }
+
+    #btn {
+        /* width: calc(100% - 400px); */
+        width: 15%;
+    }
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px; margin: 10px 20px;}
+}
+
+@media screen and (max-width: 1000px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .sidenav {
+    height: 30px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #A5D9FF;
+    transition: 0.5s;
+    }
+
+    .sidenav a {
+    /* padding: 8px 8px 8px 32px; */
+    padding-top: 1px;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline;
+    color: black;
+    }
+
+    #main {
+    padding: 16px;
+    margin-left: 50px;
+    padding-top: 30px;
+    }
+
+    .small {
+        text-align: center;
+    }
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+    <div class="small">
+        <a href="index.html" style="font-size: 20px">HOME</a>
+        <a href="calendar.html" style="font-size: 20px">CALENDAR</a>
+        <a href="notes.html" style="font-size: 20px">NOTES</a>
+        </div>
+</div>
+
+<div id="main">
+    <div id="date-save">
+    <h2 style="width: 80%">Notes</h2>
+    <button type="button" id="btn">SAVE</button>
+    </div>
+
+    <form>
+
+        <div class="bigbox"> 
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 1"></h4>
+                <textarea class="lines"></textarea>
+            </div>
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 2"></h4>
+                <textarea class="lines"></textarea>
+            </div>
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 3"></h4>
+                <textarea class="lines"></textarea>
+            </div>
+        </div>
+        <div style="color: #fff"> Empty</div>
+        <div class="bigbox"> 
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 4"></h4>
+                <textarea class="lines"></textarea>
+            </div>
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 5"></h4>
+                <textarea class="lines"></textarea>
+            </div>
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 6"></h4>
+                <textarea class="lines"></textarea>
+            </div>
+        </div>
+
+
+
+
+      
+    </form>
+ 
+  
+</div>
+
+
+<script>
+//   document.getElementById("mySidenav").style.width = "250px";
+//   document.getElementById("main").style.marginLeft = "250px";
+</script>
+   
+</body>
+</html> 
