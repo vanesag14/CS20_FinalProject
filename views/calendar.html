@@ -10,6 +10,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="jquery.dirty.js"></script>
+		
 	</head>
 	
 	
@@ -26,10 +28,11 @@
 
 		<div id="main">
 			
-			<div class="calnav">
+			<div id="HASH" class="calnav">
 				<ul>
-					<h3></h3><li class="week"><a href="calendar.html">WEEK </a></li>
-					<li class="month"><a href="month.html">MONTH</a></li>
+					<span><li class="week"><a href="calendar.html">WEEK </a></li></span>
+					<span><li class="month"><a href="month.html">MONTH</a></li></span>
+					
 				</ul>
 			</div>
 
@@ -38,10 +41,12 @@
 			<article class="schedule">
 				
 				<!-- Main date and year displayed -->
-				<h3 style="padding-left: 20px; font-size: 28px" id="month-year-main"></h3>
+				<div id="date-save">
+					<h3 style="font-size: 30px;" id="month-year-main"></h3>
+					<button type="button" id="btn">SAVE</button>
+				</div>
 			
-			
-				
+				<!-- console.log('hello') -->
 				<div class="bigboybox">	
 
 
@@ -50,10 +55,10 @@
 
 						<div class="weekday-box">
 							<div id="HASH">
-								<span id="time-HASH" class="smalltext" ><strong>MON</strong></span>
-								<span id="monday">12.06</span>
+								<span id="mon-text" class="smalltext" ><strong>MON</strong></span>
+								<span id="1">12.01</span>
 							</div>
-							<form>
+							<form id="monday" method="POST">
 									<div id="mon1-parent"><input type="checkbox" class="row-box" id="moncheckbox1"
 										 onclick="strikeThrough(this.id, document.getElementById('moninput1').id);"><input type="text" class="input" id="moninput1"
 										style="border: #fff; border-top: solid 1px; border-bottom: solid 1px #DDDDDD"><br></div>
@@ -67,16 +72,15 @@
 										onclick="strikeThrough(this.id, document.getElementById('moninput5').id);"><input type="text" class="input" id="moninput5"><br></div>
 									<div id="parent6"><input type="checkbox" class="row-box" id="box6"
 										onclick="strikeThrough(this.id, document.getElementById('moninput6').id);"><input type="text" class="input" id="moninput6"><br></div>
-									
 							</form>
 						</div>
 					
 						<div class="weekday-box">
 							<div id="HASH">
-								<span id="time-HASH" class="smalltext"><strong>TUE</strong></span>
-								<span id="tuesday">12.07</span>
+								<span id="tue-text" class="smalltext"><strong>TUE</strong></span>
+								<span id="2">12.01</span>
 							</div>
-							<form>
+							<form id="tuesday" method="POST">
 									<div id="parent7"><input type="checkbox" class="row-box" id="box7"
 										onclick="strikeThrough(this.id, document.getElementById('tueinput1').id);"><input type="text" class="input" id="tueinput1" 
 										style="border: #fff; border-top: solid 1px; border-bottom: solid 1px #DDDDDD"> <br></div>
@@ -95,15 +99,15 @@
 
 						<div class="weekday-box" id="today">
 							<div id="HASH">
-								<span id="wed-day" class="smalltext" style="color:#60a9dd"><strong>WED</strong></span>
-								<span id="wednesday" class="today" style="color:#60a9dd">12.08</span>
+								<span id="wed-text" class="smalltext"><strong>WED</strong></span>
+								<span id="3" class="today">12.01</span>
 							</div>
 
 
-							<form>
+							<form id="wednesday" method="POST">
 									<div id="parent13"><input type="checkbox" class="row-box"  id="box13"
 										onclick="strikeThrough(this.id, document.getElementById('wedinput1').id);"><input type="text" class="input" id="wedinput1" 
-										style="border: #fff; border-top: solid 1px #60a9dd; border-bottom: solid 1px #DDDDDD"> <br></div>
+										style="border: #fff; border-top: solid 1px; border-bottom: solid 1px #DDDDDD"> <br></div>
 									<div id="parent14"><input type="checkbox" class="row-box" id="box14"
 										onclick="strikeThrough(this.id, document.getElementById('wedinput2').id);"><input type="text" class="input" id="wedinput2">	<br> </div>
 									<div id="parent15"><input type="checkbox" class="row-box"  id="box15"
@@ -126,10 +130,10 @@
 
 						<div class="weekday-box" id="column2-box1">
 							<div id="HASH">
-								<span id="time-HASH" class="smalltext"><strong>THU</strong></span>
-								<span id="thursday">12.09</span>
+								<span id="thu-text" class="smalltext"><strong>THU</strong></span>
+								<span id="4">12.01</span>
 							</div>
-							<form>
+							<form id="thursday" method="POST">
 									<div id="parent19"><input type="checkbox" class="row-box" id="box19"
 										onclick="strikeThrough(this.id, document.getElementById('thuinput1').id);"><input type="text" class="input" id="thuinput1" 
 										style="border: #fff; border-top: solid 1px; border-bottom: solid 1px #DDDDDD"> <br></div>
@@ -149,10 +153,10 @@
 
 						<div class="weekday-box" id="column2-box2">
 							<div id="HASH">
-								<span id="time-HASH" class="smalltext"><strong>FRI</strong></span>
-								<span id="friday">12.10</span>
+								<span id="fri-text" class="smalltext"><strong>FRI</strong></span>
+								<span id="5">12.01</span>
 							</div>
-							<form>
+							<form id="friday" method="POST">
 									<div id="parent25"><input type="checkbox" class="row-box" id="box25"
 										onclick="strikeThrough(this.id, document.getElementById('friinput1').id);"><input type="text" class="input" id="friinput1" 
 										style="border: #fff; border-top: solid 1px; border-bottom: solid 1px #DDDDDD"> <br></div>
@@ -166,17 +170,17 @@
 										onclick="strikeThrough(this.id, document.getElementById('friinput5').id);"><input type="text" class="input" id="friinput5"><br></div>	
 									<div id="parent30"><input type="checkbox" class="row-box"  id="box30"
 										onclick="strikeThrough(this.id, document.getElementById('friinput6').id);"><input type="text" class="input" id="friinput6"><br></div>
-							</form>
+							</form method="post">
 						</div>
 
 						<div class="problematic-box">
 
 							<div class="weekend-box" id="column2-box3">
 								<div id="HASH">
-									<span id="time-HASH" class="smalltext"><strong>SAT</strong></span>
-									<span id="saturday">12.11</span>
+									<span id="sat-text" class="smalltext"><strong>SAT</strong></span>
+									<span id="6">12.01</span>
 								</div>
-								<form>
+								<form id="saturday" method="POST">
 									<div id="parent31"><input type="checkbox" class="row-box" id="box31"
 										onclick="strikeThrough(this.id, document.getElementById('satinput1').id);"><input type="text" class="input-weekend" id="satinput1" 
 										style="border: #fff; border-top: solid 1px; border-bottom: solid 1px #DDDDDD"> <br></div>
@@ -195,10 +199,10 @@
 
 							<div class="weekend-box" id="column2-box4">
 								<div id="HASH">
-									<span id="time-HASH" class="smalltext"><strong>SUN</strong></span>
-									<span id="sunday">12.12</span>
+									<span id="sun-text" class="smalltext"><strong>SUN</strong></span>
+									<span id="0">12.01</span>
 								</div>
-								<form>
+								<form id="sunday" method="POST">
 									<div id="parent37"><input type="checkbox" class="row-box" id="box37"
 										onclick="strikeThrough(this.id, document.getElementById('suninput1').id);"><input type="text" class="input-weekend" id ="suninput1"
 										style="border: #fff; border-top: solid 1px; border-bottom: solid 1px #DDDDDD"> <br></div>
@@ -227,7 +231,7 @@
 
 						<div> 
 							<div class="extras"  id="reminders" style="color:#fff; text-align: center"> REMINDERS
-								<form>
+								<form id="reminders-form" method="post">
 		
 									<ul>
 										<li>
@@ -246,8 +250,6 @@
 											<span><input type="text" class="input-reminders" id="input4"
 											onclick="textboxFocus(this.id);"> <br></span>
 										</li>
-										
-										
 									
 									</ul>
 								</form>
@@ -257,55 +259,56 @@
 							<div class="extras" id="deadlines"> DEADLINES
 
 								<div class="checkbox"> 
-								<form>
+								<form id="deadlines-form" method="post">
+
 									<input type="checkbox" id="checkbox1" 
 									onclick="strikeThrough(this.id, document.getElementById('todo1').id);"> 
-									<input type="text" class="todolist" id="todo1"> 
+									<input type="text" class="todolist" id="todo1" name="deadline1"> 
 									<input type="date" class="date"><br> <br>
 		
 									<input type="checkbox" id="checkbox2"
 									onclick="strikeThrough(this.id, document.getElementById('todo2').id);"> 
-									<input type="text" class="todolist" id="todo2"> 
+									<input type="text" class="todolist" id="todo2"  name="deadline2"> 
 									<input type="date" class="date"><br> <br>
 		
 									<input type="checkbox" id="checkbox3"
 									onclick="strikeThrough(this.id, document.getElementById('todo3').id);"> 
-									<input type="text" class="todolist" id="todo3"> 
+									<input type="text" class="todolist" id="todo3"  name="deadline3"> 
 									<input type="date" class="date"><br> <br>
 		
 									<input type="checkbox" id="checkbox4"
 									onclick="strikeThrough(this.id, document.getElementById('todo4').id);"> 
-									<input type="text" class="todolist" id="todo4"> 
+									<input type="text" class="todolist" id="todo4"  name="deadline4"> 
 									<input type="date" class="date"><br> <br>
 		
 									<input type="checkbox" id="checkbox5"
 									onclick="strikeThrough(this.id, document.getElementById('todo5').id);"> 
-									<input type="text" class="todolist" id="todo5"> 
+									<input type="text" class="todolist" id="todo5"  name="deadline5"> 
 									<input type="date" class="date"><br> <br>
 		
 									<input type="checkbox" id="checkbox6"
 									onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
-									<input type="text" class="todolist" id="todo6"> 
+									<input type="text" class="todolist" id="todo6"  name="deadline6"> 
 									<input type="date" class="date"><br> <br>
 
 									<input type="checkbox" id="checkbox7"
 									onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
-									<input type="text" class="todolist" id="todo7"> 
+									<input type="text" class="todolist" id="todo7"  name="deadline7"> 
 									<input type="date" class="date"><br> <br>
 
 									<input type="checkbox" id="checkbox8"
 									onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
-									<input type="text" class="todolist" id="todo8"> 
+									<input type="text" class="todolist" id="todo8"  name="deadline8"> 
 									<input type="date" class="date"><br> <br>
 
 									<input type="checkbox" id="checkbox9"
 									onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
-									<input type="text" class="todolist" id="todo9"> 
+									<input type="text" class="todolist" id="todo9"  name="deadline9"> 
 									<input type="date" class="date"><br> <br>
 
 									<input type="checkbox" id="checkbox10"
 									onclick="strikeThrough(this.id, document.getElementById('todo6').id);">  
-									<input type="text" class="todolist" id="todo10"> 
+									<input type="text" class="todolist" id="todo10"  name="deadline10"> 
 									<input type="date" class="date"><br> <br>
 		
 								</form>
@@ -314,23 +317,16 @@
 							</div>
 						</div>
 						
-
 					</div>
-
-
 
 				</div>	
 				
 			</article>
-		  	
-			
-			
 			
 		</div>
 
 		
-		
-		
+
 		
 		<script language="javascript">
 
@@ -338,23 +334,29 @@
 			document.getElementById("mySidenav").style.width = "250px";
 			document.getElementById("main").style.marginLeft = "250px";
 			
-			//Dynamically updates dates
-			window.onload = function() {
-				// Adding current month and year main title
-				var months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];;
-				var date = new Date();
-				var month = new Date().getMonth() + 1;
-
-				document.getElementById('month-year-main').innerHTML = months[date.getMonth()] + ' ' + date.getFullYear() + ' ' + month;
-
-				// Adding current dates mon-sun
+			//Saves form data when button is pressed
+			$("#btn").on("click", function() {
 				
-			};
+				$("#monday").submit(); 
+   				$("#tuesday").submit();
+				$("#wednesday").submit(); 
+   				$("#thursday").submit();
+				$("#friday").submit(); 
+   				$("#saturday").submit();
+				$("#sunday").submit(); 
+				$("#deadlines-form").submit();
+				$("#reminders-form").submit(); 
 
-			//new Date().getMonth()          // Get the month (0-11)
-			//new Date().getDate()			 // Get the day as a number (1-31)
-			//new Date().getDay()           // Get the weekday as a number (0-6)  
+   				
+			});
 
+			
+			$("#monday").dirty({preventLeaving: true});
+
+
+			
+
+			
 
 			// Function to change text color for Reminders
 			function textboxFocus(x){  
@@ -364,7 +366,6 @@
 			
 			// Function to strikethrough when checked and unstrike when unchecked
 			function strikeThrough(x,y) {
-				
 				//console.log(x);
 				//console.log(y);
 
@@ -381,11 +382,14 @@
 				});
 			}
 
+
+			
+
 			// Function to make textboxes visible on hover
 			$(document).ready(function() {
 
 				for (let i=1; i<43; i++) {
-					console.log(i);
+					
 					$('#parent'+i).hover(function(){
 						$('#box'+i).css("visibility", "visible");
 					}, function(){
@@ -393,8 +397,347 @@
 					}); 
 
 				}
-
 				
+			});
+
+			
+
+
+
+			//Dynamically updates dates
+			$(document).ready(function() {
+
+				// Adding current month and year main title
+				var months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 
+				'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];;
+				var date = new Date();
+				var month = new Date().getMonth() + 1;
+				var today = new Date().getDay();
+				var day = new Date().getDate();
+
+				document.getElementById('month-year-main').innerHTML = months[date.getMonth()] + ' ' + date.getFullYear();
+
+				//If today is sunday	
+				if (today == 0) {
+
+					var mon = day - 6;
+					var tue = day - 5;
+					var wed = day - 4;
+					var thu = day - 3;
+					var fri = day - 2;
+					var sat = day - 1;
+
+					// styling
+					document.getElementById('0').innerHTML = month + '.' + day;
+					document.getElementById('0').style.color = "#60a9dd";
+					document.getElementById('sun-text').style.color = "#60a9dd";
+					document.getElementById('suninput1').style.borderTop = "solid 1px #60a9dd";
+
+					//mon - sat
+					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('5').innerHTML = month + '.' + fri;
+					document.getElementById('6').innerHTML = month + '.' + sat; 
+
+					if (day<10){
+						document.getElementById('0').innerHTML = month + '.0' + day;
+					}
+					if (mon<10) {
+						document.getElementById('1').innerHTML = month + '.0' + mon;
+					}
+					if (tue<10) {
+						document.getElementById('2').innerHTML = month + '.0' + tue;
+					}
+					if (wed<10){
+						document.getElementById('3').innerHTML = month + '.0' + wed;
+					}
+					if (thu<10) {
+						document.getElementById('4').innerHTML = month + '.0' + thu;
+					}
+					if (fri<10) {
+						document.getElementById('5').innerHTML = month + '.0' + fri;
+					}
+					if (sat<10) {
+						document.getElementById('6').innerHTML = month + '.0' + sat;
+					}
+				}
+				
+				//If today is monday
+				if (today == 1) {
+					
+					var sun = day + 6; //0
+					var tue = day + 1; //2
+					var wed = day + 2; //3
+					var thu = day + 3; //4
+					var fri = day + 4; //5
+					var sat = day + 5; //6
+					
+
+					document.getElementById('1').innerHTML = month + '.' + day;
+					document.getElementById('1').style.color = "#60a9dd";
+					document.getElementById('mon-text').style.color = "#60a9dd";
+					document.getElementById('moninput1').style.borderTop = "solid 1px #60a9dd";
+
+					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('5').innerHTML = month + '.' + fri;
+					document.getElementById('6').innerHTML = month + '.' + sat; 
+
+					if (day<10){
+						document.getElementById('1').innerHTML = month + '.0' + day;
+					}
+					if (sun<10) {
+						document.getElementById('0').innerHTML = month + '.0' + sun;
+					}
+					if (tue<10) {
+						document.getElementById('2').innerHTML = month + '.0' + tue;
+					}
+					if (wed<10){
+						document.getElementById('3').innerHTML = month + '.0' + wed;
+					}
+					if (thu<10) {
+						document.getElementById('4').innerHTML = month + '.0' + thu;
+					}
+					if (fri<10) {
+						document.getElementById('5').innerHTML = month + '.0' + fri;
+					}
+					if (sat<10) {
+						document.getElementById('6').innerHTML = month + '.0' + sat;
+					}
+				}
+
+				//If today is tuesday
+				if (today == 2) {
+					
+					var sun = day + 5; //0
+					var mon = day - 1; //1
+					var wed = day + 1; //3
+					var thu = day + 2; //4
+					var fri = day + 3; //5
+					var sat = day + 4; //6
+
+					document.getElementById('2').innerHTML = month + '.' + day;
+					document.getElementById('2').style.color = "#60a9dd";
+					document.getElementById('tue-text').style.color = "#60a9dd";
+					document.getElementById('tueinput1').style.borderTop = "solid 1px #60a9dd";
+
+					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('5').innerHTML = month + '.' + fri;
+					document.getElementById('6').innerHTML = month + '.' + sat; 
+
+					if (day<10){
+						document.getElementById('2').innerHTML = month + '.0' + day;
+					}
+					if (sun<10) {
+						document.getElementById('0').innerHTML = month + '.0' + sun;
+					}
+					if (mon<10) {
+						document.getElementById('1').innerHTML = month + '.0' + mon;
+					}
+					if (wed<10){
+						document.getElementById('3').innerHTML = month + '.0' + wed;
+					}
+					if (thu<10) {
+						document.getElementById('4').innerHTML = month + '.0' + thu;
+					}
+					if (fri<10) {
+						document.getElementById('5').innerHTML = month + '.0' + fri;
+					}
+					if (sat<10) {
+						document.getElementById('6').innerHTML = month + '.0' + sat;
+					}
+				}
+
+				//If today is wednesday
+				if (today == 3) {
+					
+					var sun = day + 4; //0
+					var mon = day - 2; //1
+					var tue = day - 1; //2
+					var thu = day + 1; //4
+					var fri = day + 2; //5
+					var sat = day + 3; //6
+					
+
+					document.getElementById('3').innerHTML = month + '.' + day;
+					document.getElementById('3').style.color = "#60a9dd";
+					document.getElementById('wed-text').style.color = "#60a9dd";
+					document.getElementById('wedinput1').style.borderTop = "solid 1px #60a9dd";
+
+					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('5').innerHTML = month + '.' + fri;
+					document.getElementById('6').innerHTML = month + '.' + sat; 
+					
+					if (day<10){
+						document.getElementById('3').innerHTML = month + '.0' + day;
+					}
+					if (sun<10) {
+						document.getElementById('0').innerHTML = month + '.0' + sun;
+					}
+					if (mon<10) {
+						document.getElementById('1').innerHTML = month + '.0' + mon;
+					}
+					if (tue<10){
+						document.getElementById('2').innerHTML = month + '.0' + tue;
+					}
+					if (thu<10) {
+						document.getElementById('4').innerHTML = month + '.0' + thu;
+					}
+					if (fri<10) {
+						document.getElementById('5').innerHTML = month + '.0' + fri;
+					}
+					if (sat<10) {
+						document.getElementById('6').innerHTML = month + '.0' + sat;
+					}
+				}
+
+				//If today is thursday
+				if (today == 4) {
+					
+					var sun = day + 3; //0
+					var mon = day - 3; //1
+					var tue = day - 2; //2
+					var wed = day - 1; //3
+					var fri = day + 1; //5
+					var sat = day + 2; //6
+					
+
+					document.getElementById('4').innerHTML = month + '.' + day;
+					document.getElementById('4').style.color = "#60a9dd";
+					document.getElementById('thu-text').style.color = "#60a9dd";
+					document.getElementById('thuinput1').style.borderTop = "solid 1px #60a9dd";
+
+					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('5').innerHTML = month + '.' + fri;
+					document.getElementById('6').innerHTML = month + '.' + sat; 
+					
+					if (day<10){
+						document.getElementById('4').innerHTML = month + '.0' + day;
+					}
+					if (sun<10) {
+						document.getElementById('0').innerHTML = month + '.0' + sun;
+					}
+					if (mon<10) {
+						document.getElementById('1').innerHTML = month + '.0' + mon;
+					}
+					if (tue<10){
+						document.getElementById('2').innerHTML = month + '.0' + tue;
+					}
+					if (wed<10) {
+						document.getElementById('3').innerHTML = month + '.0' + wed;
+					}
+					if (fri<10) {
+						document.getElementById('5').innerHTML = month + '.0' + fri;
+					}
+					if (sat<10) {
+						document.getElementById('6').innerHTML = month + '.0' + sat;
+					}
+				}
+
+				//If today is friday
+				if (today == 5) {
+
+					var sun = day + 2; //0
+					var mon = day - 4; //1
+					var tue = day - 3; //2
+					var wed = day - 2; //3
+					var thu = day - 1; //4
+					var sat = day + 1; //6
+
+					document.getElementById('5').innerHTML = month + '.' + day;
+					document.getElementById('5').style.color = "#60a9dd";
+					document.getElementById('fri-text').style.color = "#60a9dd";
+					document.getElementById('friinput1').style.borderTop = "solid 1px #60a9dd";
+
+					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('6').innerHTML = month + '.' + sat; 
+
+					if (day<10){
+						document.getElementById('5').innerHTML = month + '.0' + day;
+					}
+					if (sun<10) {
+						document.getElementById('0').innerHTML = month + '.0' + sun;
+					}
+					if (mon<10) {
+						document.getElementById('1').innerHTML = month + '.0' + mon;
+					}
+					if (tue<10){
+						document.getElementById('2').innerHTML = month + '.0' + tue;
+					}
+					if (wed<10) {
+						document.getElementById('3').innerHTML = month + '.0' + wed;
+					}
+					if (thu<10) {
+						document.getElementById('4').innerHTML = month + '.0' + thu;
+					}
+					if (sat<10) {
+						document.getElementById('6').innerHTML = month + '.0' + sat;
+					}
+				}
+
+				//If today is saturday
+				if (today == 6) {
+
+					var sun = day + 1; //0
+					var mon = day - 5; //1
+					var tue = day - 4; //2
+					var wed = day - 3; //3
+					var thu = day - 2; //4
+					var fri = day - 1; //5
+
+					document.getElementById('6').innerHTML = month + '.' + day;
+					document.getElementById('6').style.color = "#60a9dd";
+					document.getElementById('sat-text').style.color = "#60a9dd";
+					document.getElementById('satinput1').style.borderTop = "solid 1px #60a9dd";
+
+					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('5').innerHTML = month + '.' + fri; 
+
+					if (day<10){
+						document.getElementById('5').innerHTML = month + '.0' + day;
+					}
+					if (sun<10) {
+						document.getElementById('0').innerHTML = month + '.0' + sun;
+					}
+					if (mon<10) {
+						document.getElementById('1').innerHTML = month + '.0' + mon;
+					}
+					if (tue<10){
+						document.getElementById('2').innerHTML = month + '.0' + tue;
+					}
+					if (wed<10) {
+						document.getElementById('3').innerHTML = month + '.0' + wed;
+					}
+					if (thu<10) {
+						document.getElementById('4').innerHTML = month + '.0' + thu;
+					}
+					if (fri<10) {
+						document.getElementById('5').innerHTML = month + '.0' + fri;
+					}
+
+				}
+
 			});
 
 		

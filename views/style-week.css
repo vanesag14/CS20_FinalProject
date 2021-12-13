@@ -39,13 +39,7 @@ body {
   color: white;
 }
 
-/* .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-} */
+
 
 #main {
   transition: margin-left .5s;
@@ -63,11 +57,41 @@ body {
 	padding: 8px 20px;
 	margin-bottom: 20px;
 	
+	
 
 }
 
+/* DATE and SAVE button */
+#date-save {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	
+}
+#btn {
+	font-family: inherit;
+	width: 8%;
+	height: 38px;
+	border-radius: 10px;
+	background: #fff;
+	border: solid 1px;
+}
+
+#btn:hover {
+	cursor: pointer;
+}
+#month-year-main {
+	width: 78%;
+	
+}
+
+
+
+
 .calnav ul {
 	margin-bottom: 0px;
+	width: 80%;
+	
 }
 
 #main .calnav ul li a {
@@ -77,9 +101,13 @@ body {
 
 .calnav .week {
 	border: solid 2px;
-	
 	border-radius: 12px;
+	cursor: pointer;
 	
+}
+
+.month {
+	cursor: pointer;
 }
 
 input[type='text'] { 
@@ -195,7 +223,6 @@ input[type='text'] {
 .weekend-box h3 {
 	margin: 0;
 }
-
 
 
 
