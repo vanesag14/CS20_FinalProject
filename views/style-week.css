@@ -42,8 +42,9 @@ body {
 
 
 #main {
-  transition: margin-left .5s;
-  padding: 3px 20px;
+	transition: margin-left .5s;
+	padding: 16px;
+	margin-left: 250px;
 }
 
 
@@ -56,10 +57,9 @@ body {
 	display: inline-block;
 	padding: 8px 20px;
 	margin-bottom: 20px;
-	
-	
 
 }
+
 
 /* DATE and SAVE button */
 #date-save {
@@ -90,7 +90,7 @@ body {
 
 .calnav ul {
 	margin-bottom: 0px;
-	width: 80%;
+	width: 95%;
 	
 }
 
@@ -151,9 +151,12 @@ input[type='text'] {
 
 #weekdays-1 {
 	flex: 2 1 0;
+	justify-content: space-between;
 }
 #weekdays-2 {
 	flex: 2 1 0;
+	justify-content: space-between;
+	
 }
 #weekdays-3 {
 	flex: 1 1 0;
@@ -169,7 +172,6 @@ input[type='text'] {
 	transition: 0.4s;
 	padding: 10px 10px 15px 0px;
 	width: 95%;
-	
 	
 }
 
@@ -197,16 +199,17 @@ input[type='text'] {
 .problematic-box {
 	
 	justify-content: space-between;
+
 	display: flex;
   	height: 100%;
-	  width: 95%;
+	width: 95%;
 	
 }
 
 
 .weekend-box {
 	
-
+	
 	flex-basis: 48%;
 	background:#fff;
 	border-radius: 10px;
@@ -245,15 +248,7 @@ input[type='text'] {
 	padding-left: 8px;
 }
 
-.anoying-parent {
-	position: fixed;
-}
 
-.annoying {
-	position:fixed;
-	right: 700px;
-
-}
 
 
 
@@ -391,4 +386,64 @@ span {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+@media (max-width: 900px) {
+	.bigboybox {
+			display: flex;
+			flex-direction: column;	
+	}
+
+	.bigboybox > div {
+		margin: 0px;
+	}
+
+	.Weekdays > div {
+		margin: 8px;
+	}
+
+	#btn {
+       
+        width: 15%;
+    }
+
+
+}
+@media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px; margin: 10px 20px;}
+  }
+
+@media screen and (max-width: 1000px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .sidenav {
+    height: 30px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #A5D9FF;
+    transition: 0.5s;
+    }
+
+    .sidenav a {
+    /* padding: 8px 8px 8px 32px; */
+    padding-top: 1px;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline;
+    color: black;
+    }
+
+    #main {
+    padding: 16px;
+    margin-left: 50px;
+    padding-top: 30px;
+    }
+
+    .small {
+        text-align: center;
+    }
 }
