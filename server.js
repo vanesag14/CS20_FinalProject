@@ -55,8 +55,9 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
 app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: ""})
 })
-app.get('/i', checkNotAuthenticated, (req, res) => {
-    res.render('index.ejs', { title: " ," + req.user.fname })
+app.get('/ind', checkAuthenticated, (req, res) => {
+    res.render('index.ejs', { title: " ," + req.user.obj.fName })
+    console.log(req.user.obj.fName)
 })
 //when the user recently registered an account
 //TODO: app.gets below NEEDS TO CHECK IF USER IS AUTHENTICATED before accessing
@@ -68,7 +69,7 @@ app.get('/eregister', (req, res) => {
     res.render('register.ejs', { placeHold: "Email Already in Use", classRed: "redPlaceholder"})
 })
 
-app.get('/logout', (req, res) => {
+app.get('/logout', checkAuthenticated, (req, res) => {
     res.render('logout.ejs')
 })
 /****************************************************
@@ -76,7 +77,7 @@ app.get('/logout', (req, res) => {
  ****************************************************/
 //goes to home back on successful login
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/i',
+    successRedirect: '/ind',
     failureRedirect: '/login',
     failureFlash: true
 }))
@@ -145,7 +146,7 @@ function checkAuthenticated(req, res, next) {
 
 function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-        return res.redirect('/') //TODO: or wherever they should be redirected to
+        return res.redirect('/ind') //TODO: or wherever they should be redirected to CHANGE TO BE A DIFFERENT LOGIN PAGE
     }
 
     next()
