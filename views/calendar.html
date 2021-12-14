@@ -15,6 +15,11 @@
 		<script src="jquery.dirty.js"></script>
 
 		<style>
+
+			#logo {
+				width: 80px;
+			}
+
 			#main {
 				margin-left: 250px;
 			}
@@ -32,9 +37,15 @@
 				margin-left: 0px;
 				transition: 0.5s;
 				}
+
+				#logo {
+				display: none;
+			}
 			}
 			
 		</style>
+
+
 		
 		
 	</head>
@@ -45,20 +56,23 @@
 
 		<!--Navigation bar-->	
 		<div id="mySidenav" class="sidenav">
+			<a href="../index.html" ><img src="LOGO-l.png" alt="logo" id="logo"
+				style="padding-bottom: 50px;"></a>
 			<a href="../index.html">HOME</a>
 			<a href="calendar.html" style="color:#fff;">CALENDAR</a>
 			<a href="notes.html">NOTES</a>
+			
 		</div>
 
 
 		<div id="main">
 			
 			<div id="HASH" class="calnav">
-				<ul>
+				<ul>	
 					<span><li class="week"><a href="calendar.html">WEEK </a></li></span>
 					<span><li class="month"><a href="month.html">MONTH</a></li></span>
-					 <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i> 
-					
+					<span><a href="login.html"><i style="color: #000;" class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i></a></span>
+					<!-- <span><li><a href="../index.html" ><img src="LOGO2.png" alt="logo" id="logo" class="logo"></a></li></span> -->
 				</ul>
 			</div>
 
