@@ -44,9 +44,9 @@ const renderCalendar = () => {
     "December",
   ];
 
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+  document.querySelector(".date h1").innerHTML = months[date.getMonth()] + ' ' + date.getFullYear();
 
-  document.querySelector(".date p").innerHTML = new Date().toDateString();
+  document.querySelector(".date p").innerHTML = 'TODAY | ' + new Date().toDateString();
 
   let days = "";
 
@@ -95,4 +95,3 @@ app.use(bodyParser.urlencoded({
 app.post('/process', (req, res) => {
   console.log(req.body.setDate);
 });
-
