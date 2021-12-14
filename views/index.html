@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+<style>
+body {
+	  font-family: "Montserrat", sans-serif;
+	  transition: background-color .5s;
+	}
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #A5D9FF;
+  transition: 0.5s;
+  padding-top: 200px;
+}
+.sidenav a {
+  /* padding: 8px 8px 8px 32px; */
+  padding-top: 50px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+}
+.sidenav a:hover {
+  color: white;
+}
+.sidenav a:active {
+  color: white;
+}
+/* .sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+} */
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+  margin-left: 250px;
+}
+#ct7 {
+    font-size: 80px;
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 50%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#data {
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 65%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#date {
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 35%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#month {
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 38%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#grateful {
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 75%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#icon {
+    position: absolute;
+    left: 90%;
+    top: 0%;
+}
+#weather {
+    position: absolute;
+    left: 92%;
+    top: 11%;
+}
+input[type=text] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-right: 0px;
+    border-left: 0px;
+    border-top: 0px;
+    border-color: black;
+    background-color: transparent;
+    resize: horizontal;
+    outline: none;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+@media screen and (max-width: 1000px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .sidenav {
+    height: 30px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #A5D9FF;
+    transition: 0.5s;
+    }
+    .sidenav a {
+    /* padding: 8px 8px 8px 32px; */
+    padding-top: 1px;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline;
+    color: black;
+    }
+    #main {
+    padding: 16px;
+    margin-left: 50px;
+    padding-top: 30px;
+    }
+    .small {
+        text-align: center;
+    }
+}
+</style>
+</head>
+    <body>
+
+    <div id="mySidenav" class="sidenav">
+    <div class="small">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="notes.html">Notes</a>
+    </div>
+    </div>
+
+    <div id="main">
+    <h1>Welcome
+      <%= title %>
+    </h1>
+    <div id="date"></div>
+    <div id="month"></div>
+    <div id='ct7'></div>
+    <div id="data"></div>
+    <img id="icon" src="">
+    <div id="weather">
+        
+    </div>
+    <div id="grateful">
+        What are you grateful for today?
+        </br>
+        <input type="text"/>
+        </br>
+        <!-- <button onclick="location.reload()">Reload</button> -->
+    </div>
+    </div>
+
+    <script>
+        get_inspo();
+    //document.getElementById("mySidenav").style.width = "250px";
+    //document.getElementById("main").style.marginLeft = "250px";
+    //inspo quote
+    // I referenced loadFile() from read_json_ajax.html and contray_axax2.html
+    function get_inspo() {
+            request = new XMLHttpRequest();
+            console.log("1 - request object created");
+            // opens json file at remote location/set urll for ajax request to be json file
+            request.open("GET", "https://api.quotable.io/random?tags=inspirational&maxLength=140", true);
+            console.log("2 - opened request file");
+            // set up callback
+            request.onreadystatechange = function() {
+                console.log("3 - readystatechange event fired.");
+                // runs if successful
+                // gets random quote
+                if (request.readyState == 4 && request.status == 200) {
+                    result = request.responseText;
+                    ran_quote = JSON.parse(result); 
+                    
+                    document.getElementById("data").innerHTML = '"'+ ran_quote["content"] +'"';
+                    }
+                    else if (request.readyState == 4 && request.status != 200) {
+                        document.getElementById("data").innerHTML = "Something is wrong!";
+                    }
+                    else if (request.readyState == 3) {
+                        document.getElementById("data").innerHTML = "Far too soon! Try again";
+                    }
+                }
+                // sends HTTP request
+                request.send();
+                console.log("4 - Request sent");
+            }
+            function get_weather() {
+            fetch('https://api.openweathermap.org/data/2.5/weather?lat=42.326515&lon=-122.875595&units=imperial&appid=89fd224886d32ee0716a8b0ef3c76ca8')
+          
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+      // Examine the text in the response
+      response.json().then(function(data) {
+       // ran_quote = JSON.parse(data); 
+        console.log(data);
+        showWeatherData(data);
+        get_icon(data);
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+}
+  function showWeatherData(data) {
+      curr_weather = data.main.temp;
+      curr_icon = data.weather[0].icon;
+      console.log(curr_icon);
+      document.getElementById("weather").innerHTML = curr_weather + " °F";
+      
+      //credit 
+        //https://www.youtube.com/watch?v=6trGQWzg2AI&t=2979s
+  }
+  function get_icon(data) {
+    curr_icon = data.weather[0].icon;
+    //youtubeimgsrc = "http://openweathermap.org/img/wn/${curr_icon}@2x.png";
+    document.getElementById("icon").src = "http://openweathermap.org/img/wn/"+ curr_icon+"@2x.png";
+  }
+            // function get_weather() {
+            // request = new XMLHttpRequest();
+            // console.log("1 - request object created");
+            // // opens json file at remote location/set urll for ajax request to be json file
+            // request.open("GET", "https://api.openweathermap.org/data/2.5/weather?lat=42.326515&lon=-122.875595&appid=89fd224886d32ee0716a8b0ef3c76ca8", true);
+            // console.log("2 - opened request file");
+            // // set up callback
+            // request.onreadystatechange = function() {
+            //     console.log("3 - readystatechange event fired.");
+            //     // runs if successful
+            //     // gets random quote
+            //     if (request.readyState == 4 && request.status == 200) {
+            //         result = request.responseText;
+            //         ran_quote = JSON.parse(result); 
+                    
+            //         document.getElementById("weather").innerHTML = '"'+ ran_quote["weather.id"] +'"';
+            //         }
+            //         else if (request.readyState == 4 && request.status != 200) {
+            //             document.getElementById("weather").innerHTML = "Something is wrong!";
+            //         }
+            //         else if (request.readyState == 3) {
+            //             document.getElementById("weather").innerHTML = "Far too soon! Try again";
+            //         }
+            //     }
+            //     // sends HTTP request
+            //     request.send();
+            //     console.log("4 - Request sent");
+            // }
+            // time
+            function display_ct7() {
+                var x = new Date()
+                var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
+                hours = x.getHours( ) % 12;
+                hours = hours ? hours : 12;
+                hours=hours.toString().length==1? 0+hours.toString() : hours;
+                var minutes=x.getMinutes().toString()
+                minutes=minutes.length==1 ? 0+minutes : minutes;
+                var seconds=x.getSeconds().toString()
+                seconds=seconds.length==1 ? 0+seconds : seconds;
+                var dt=x.getDate().toString();
+                dt=dt.length==1 ? 0+dt : dt;
+                var x1 = hours + ":" +  minutes + ":" +  seconds + " " + ampm;
+                document.getElementById('ct7').innerHTML = x1;
+                display_c7();
+                }
+                function display_c7(){
+                var refresh=1000; // Refresh rate in milli seconds
+                mytime=setTimeout('display_ct7()',refresh)
+            }
+            display_c7()
+            get_day();
+            function get_day() {
+                var d = new Date();
+                var dayNames = ['Sunday', 'Monday', 'Tueday', 'Wednesday', 
+                'Thursday', 'Friday', 'Saturday'];
+                document.getElementById('date').innerHTML = dayNames[d.getUTCDay()];
+            }
+            function get_date() {
+                var d = new Date();
+                //console.log(d.getMonth());
+                var dayMonth = ['January', 'February', 'March', 'April', 
+                'May', 'June', 'July', 'August', 'September', 'October', 
+                'November', 'December'];
+                document.getElementById('month').innerHTML = dayMonth[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+            }
+            get_date()
+    //sources 
+        // https://www.w3schools.com/howto/howto_js_sidenav.asp
+        // https://github.com/lukePeavey/quotable
+        // https://www.plus2net.com/javascript_tutorial/clock.php
+        // weather api
+        const API_KEY = '89fd224886d32ee0716a8b0ef3c76ca8';
+        
+        // function get_weather() {
+            
+        //         fetch(`api.openweathermap.org/data/2.5/weather?lat=42.326515&lon=-122.875595&appid=89fd224886d32ee0716a8b0ef3c76ca8`).then(res => res.json()).then(data=> {
+        //             console.log(data);
+        //         })
+        
+        //     // api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+        // }
+        get_weather();
+    </script>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("mySidenav");
+            if (x.className === "sidenav") {
+                x.className += " responsive";
+            } else {
+                x.className = "sidenav";
+            }
+        }
+        var inp = document.querySelector('input');
+        inp.value = sessionStorage.getItem('input-value') || '';
+        inp.addEventListener('input', function() {
+        sessionStorage.setItem('input-value', inp.value)
+        });
+        var input = document.querySelector('input'); // get the input element
+        input.addEventListener('input', resizeInput); // bind the "resizeInput" callback on "input" event
+        resizeInput.call(input); // immediately call the function
+        function resizeInput() {
+        this.style.width = this.value.length + "ch";
+}
+    </script>
+    
+    </body>
+</html> 
