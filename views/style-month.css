@@ -112,10 +112,10 @@ body {
     height: 800px;
     background-color: white;
     /* box-shadow: 0 0.5rem 3rem rgba(114, 33, 33, 0.4); */
-	margin: 5px;
+	  margin: 5px;
     padding: 0px;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 15px;
   }
 
    .month {
@@ -195,7 +195,7 @@ body {
   }
   
   .days div:hover:not(.today) {
-    background-color: #262626;
+    background-color: #721919;
     border: 0.2rem solid #777;
     cursor: pointer;
   }
@@ -209,7 +209,59 @@ body {
     background-color: #A5D9FF;
   }
   
+/* NEW CHANGES */
+/* Deadline section */
+.importantDates {
+    margin-top: 50px;
+    padding: 10px;
+    display: block;
+    background: #A5D9FF;
+    border-radius: 10px;
+}
 
+.importantDatesHeader {
+  text-align: center;
+  font-weight: normal;
+}
+
+.todolist {
+	width: calc(100% - 55px);
+	height: 25px;
+	background: #E9F4FD;
+	border: #E9F4FD;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	margin-left: 25px;
+
+}
+
+.setDate {
+	font-family: inherit; 
+	font-size: 11px;
+	border: solid #fff;
+	width: calc(100% - 56px);
+  margin-left: 25px;
+}
+
+.submitEvent {
+	font-family: inherit;
+	width: 100px;
+	height: 38px;
+	border-radius: 10px;
+	background: #fff;
+	border: solid 1px;
+  left: 50%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.submitEvent:hover {
+	cursor: pointer;
+  background-color: black;
+  color: #fff;
+}
+/* NEW CHANGES */
 
 /* Mobile Friendly */
 
@@ -251,18 +303,25 @@ body {
           margin-left: 0px;
           }
       
+      /* NEW CHANGES */
       .days div {
         width: calc(65% / 7);
       }
+      /* NEW CHANGES */
+
   
   
   }
+
+  /* NEW CHANGES */
 
   @media screen and (max-width: 630px) {
     .days div {
       width: calc(55% / 7);
     }
   }
+  /* NEW CHANGES */
+
 
   @media screen and (max-width: 1000px) {
   

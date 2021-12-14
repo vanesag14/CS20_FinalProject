@@ -1,3 +1,5 @@
+
+
 const date = new Date();
 
 const renderCalendar = () => {
@@ -80,3 +82,17 @@ document.querySelector(".next").addEventListener("click", () => {
 });
 
 renderCalendar();
+
+var http = require('http');
+const app = express();
+
+const express = require('express');
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({
+  extended:true
+}));
+
+app.post('/process', (req, res) => {
+  console.log(req.body.setDate);
+});
+
