@@ -152,13 +152,35 @@ input[type=text] {
   .sidenav a {font-size: 18px;}
 }
 
-@media screen and (max-height: 800px) {
+@media screen and (max-height: 600px) {
     #main {
   transition: margin-left .5s;
   padding: 16px;
   margin-left: 250px;
   font-size: 10px;
+  
 }
+#ct7 {
+    font-size: 20px;
+}   
+input[type=text] {
+    font-size: 10px;
+
+}
+#weather {
+    font-size: 10px;
+}
+
+#btn {
+	font-family: inherit;
+	width: 25%;
+	height: 38px;
+	border-radius: 10px;
+	background: #fff;
+	border: solid 1px;
+    font-size: 10px;
+}
+
 }
 
 @media screen and (max-width: 1350px) {
@@ -254,6 +276,10 @@ input[type=text] {
     text-align: center;
     font-style: italic;
 }
+
+#login {
+    padding-top: 100px;
+}
 #date {
     color: black;
     /* Center vertically and horizontally */
@@ -285,24 +311,76 @@ input[type=text] {
 }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .sidenav {
+    height: 30px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #A5D9FF;
+    transition: 0.5s;
+    }
+    .sidenav a {
+    /* padding: 8px 8px 8px 32px; */
+    padding-top: 1px;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline;
+    color: black;
+    margin: 10px;
+    }
+    #main {
+    padding: 16px;
+    margin-left: 50px;
+    padding-top: 30px;
+    }
+    .small {
+        text-align: center;
+    }
     #logo {
         display: none; 
     }
     #icon {
-        position: absolute;
-        left: 40%;
         top: 15%;
-        margin-left: auto;
-        margin-right: auto;
+        left:40%;
+    
     }
     #weather {
-        position: absolute;
-        
+        left:45%;
         top: 25%;
-        left: 45%;
         font-size: 15px;
     }
+    #ct7 {
+        font-size: 32px;
+}
+#data {
+    font-size: 15px;
+}
+#date {
+    font-size: 15px;
+}
+
+#month {
+  font-size: 15px;
+}
+
+#grateful {
+    font-size: 15px;
+   
+}
+#btn {
+	
+    font-size: 8px;
+}
+
+input[type=text] {
+    font-size: 15px;
+
+}
 }
 </style>
 </head>
@@ -316,7 +394,10 @@ input[type=text] {
     <a href="calendar.html">CALENDAR</a>
     <a href="notes.html">NOTES</a>
     </div>
+    
+    
     </div>
+    
 
     <div id="main">
     <h1>Welcome
@@ -333,13 +414,17 @@ input[type=text] {
     <div id="grateful">
     </br>
     </br>
+</br>
+</br>
     What are you grateful for today?
     </br>
-    <form action="/greatful" method="POST">
+
+    <form>
    
-    <input name="msg" type="text"/>
-    <button type="submit" id="btn">SAVE</button>
-    </form>
+    <input type="text"/>
+    </br>
+    <button type="button" id="btn">SAVE</button>
+</form>
     </br>
         <!-- <button onclick="location.reload()">Reload</button> -->
     </div>
@@ -355,7 +440,7 @@ input[type=text] {
             request = new XMLHttpRequest();
             console.log("1 - request object created");
             // opens json file at remote location/set urll for ajax request to be json file
-            request.open("GET", "https://api.quotable.io/random?tags=inspirational&maxLength=140", true);
+            request.open("GET", "https://api.quotable.io/random?tags=inspirational&maxLength=50", true);
             console.log("2 - opened request file");
             // set up callback
             request.onreadystatechange = function() {

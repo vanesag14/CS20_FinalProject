@@ -18,13 +18,23 @@ h1 {
     text-align: center;
     font-family: "Montserrat", sans-serif;
 }
+.sign-up-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sign-up-header .logo-pic {
+    height: 5em;
+}
 
 .forms .text-input,
 .forms .btn,
 .forms .checkbox{
     display: block;
 }
-
+.remember-me {
+    display: inline;
+}
 .forms .text-input {
     margin-bottom: 20px;
     border: 1px solid grey;
@@ -45,9 +55,38 @@ h1 {
     font-family: "Montserrat", sans-serif;
 }
 
+.forms .checkbox2,
+.forms .checkbox1 {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.forms .checkbox2 label,
+.forms .checkbox1 label {
+    margin-left: 10px;
+}
+input.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+
+.forms .checkbox1 label {
+    font-weight: 600;
+    font-size: .82em;
+    color:#3a3332;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.forms .checkbox2 label {
+    font-size: .84em;
+    color: rgb(93, 93, 93);
+    font-family: "Montserrat", sans-serif;
+}
 .forms .btn:hover{
-    border:solid #E55F7f 2px;
-	background: #E55F7F;
+    border:solid black 2px;
+	background: black;
     color: white;
 }
 
@@ -67,12 +106,14 @@ h1 {
     color: #3A3332;
 }
 
+
 #create.btn.signin:hover {
 	background: black;
     border:solid black 1px;
     color: white;
     cursor: pointer;
 }
+
 
 .forms #sign-in {
     background-color: white;
