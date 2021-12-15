@@ -26,6 +26,20 @@ body {
   transition: 0.5s;
   padding-top: 10px;
 }
+
+#btn {
+	font-family: inherit;
+	width: 20%;
+	height: 38px;
+	border-radius: 10px;
+	background: #fff;
+	border: solid 1px;
+}
+
+#btn:hover {
+	cursor: pointer;
+}
+
 .sidenav a {
   /* padding: 8px 8px 8px 32px; */
   padding-top: 50px;
@@ -136,6 +150,15 @@ input[type=text] {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+@media screen and (max-height: 800px) {
+    #main {
+  transition: margin-left .5s;
+  padding: 16px;
+  margin-left: 250px;
+  font-size: 10px;
+}
 }
 
 @media screen and (max-width: 1350px) {
@@ -296,7 +319,8 @@ input[type=text] {
     </div>
 
     <div id="main">
-    <h1>Welcome<%= title %>
+    <h1>Welcome
+      <%= title %>
     </h1>
     <div id="date"></div>
     <div id="month"></div>
@@ -314,6 +338,7 @@ input[type=text] {
     <form>
    
     <input type="text"/>
+    </br>
     <button type="button" id="btn">SAVE</button>
 </form>
     </br>
@@ -450,11 +475,11 @@ input[type=text] {
                 x.className = "sidenav";
             }
         }
-        var inp = document.querySelector('input');
-        inp.value = sessionStorage.getItem('input-value') || '';
-        inp.addEventListener('input', function() {
-        sessionStorage.setItem('input-value', inp.value)
-        });
+//         var inp = document.querySelector('input');
+//         inp.value = sessionStorage.getItem('input-value') || '';
+//         inp.addEventListener('input', function() {
+//         sessionStorage.setItem('input-value', inp.value)
+//         });
         var input = document.querySelector('input'); // get the input element
         input.addEventListener('input', resizeInput); // bind the "resizeInput" callback on "input" event
         resizeInput.call(input); // immediately call the function
