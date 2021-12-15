@@ -51,7 +51,6 @@ app.get('/month.html', (req,res) => {
     res.render('month.ejs')
 })
 app.get('/calendar.html', (req, res) => {
-    console.log(req.user[0].calendar[0].day[0])
     if(req.isAuthenticated()) {
         res.render('calendar.ejs', { 
             reminder1: req.user[0].reminders[0].content,
