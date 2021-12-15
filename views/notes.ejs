@@ -133,6 +133,18 @@ input[type=submit] {
 	cursor: pointer;
 }
 
+#btn-save {
+	font-family: inherit;
+	width: 8%;
+	height: 38px;
+	border-radius: 10px;
+	background: #fff;
+	border: solid 1px;
+}
+
+#btn-save:hover {
+	cursor: pointer;
+}
 #main {
   transition: margin-left .5s;
   padding: 16px;
@@ -227,16 +239,20 @@ input[type=submit] {
         <a href="calendar.html" >CALENDAR</a>
         <a href="notes.html" style="color: #fff;">NOTES</a>
         <a href="/login"><button type="button" id="btn" class="loginbtn" style="border: none; height: 25px; width: 55px;">LOGIN</button></a>
+        <form action="/logout?_method=DELETE" method="POST">
+            <a href=""><button type="submit" id="btn3" class="loginbtn" style="border: none; height: 25px; width: 66px; border-radius: 10px;
+                background: #fff; font-family: inherit;">LOGOUT</button></a>
+        </form>
         </div>
 </div>
 
 <div id="main">
     <div id="date-save">
     <h2 style="width: 80%; display: inline-block;">NOTES</h2>
-    <button type="button" id="btn">SAVE</button>
+    <button type="button" id="btn-save">SAVE</button>
     </div>
 
-    <form>
+    <form id="notes-form" method="POST">
 
         <div class="bigbox"> 
             <div class="box">
@@ -270,7 +286,7 @@ input[type=submit] {
 
 
 
-
+        
       
     </form>
  
@@ -279,8 +295,11 @@ input[type=submit] {
 
 
 <script>
-//   document.getElementById("mySidenav").style.width = "250px";
-//   document.getElementById("main").style.marginLeft = "250px";
+$("#btn-save").on("click", function() {
+				
+				$("#notes-form").submit(); 
+
+			});
 </script>
    
 </body>
