@@ -8,12 +8,20 @@
 <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 <style>
 body {
-	  font-family: "Montserrat", sans-serif;
-	  transition: background-color .5s;
-	}
-  #logo {
-				width: 80px;
-			}
+	font-family: "Montserrat", sans-serif;
+	transition: background-color .5s;
+}
+#logo {
+    width: 80px;
+}
+
+#lol .loginbtn {
+    font-family: inherit;
+	width: 35%;
+	height: 38px;
+	background: pink;
+	border: none;
+}
   
 .sidenav {
   height: 100%;
@@ -25,11 +33,12 @@ body {
   background-color: #A5D9FF;
   transition: 0.5s;
   padding-top: 10px;
+  text-align: center;
 }
 
 #btn {
 	font-family: inherit;
-	width: 20%;
+	width: 35%;
 	height: 38px;
 	border-radius: 10px;
 	background: #fff;
@@ -49,6 +58,10 @@ body {
   display: block;
   transition: 0.3s;
   text-align: center;
+}
+
+.sidenav button {
+    text-align: center;  
 }
 .sidenav a:hover {
   color: white;
@@ -173,8 +186,8 @@ input[type=text] {
 
 #btn {
 	font-family: inherit;
-	width: 25%;
-	height: 38px;
+	width: 30%;
+	height: 35px;
 	border-radius: 10px;
 	background: #fff;
 	border: solid 1px;
@@ -224,7 +237,7 @@ input[type=text] {
     background-color: #A5D9FF;
     transition: 0.5s;
     }
-    .sidenav a {
+    .sidenav a{
     /* padding: 8px 8px 8px 32px; */
     padding-top: 1px;
     text-decoration: none;
@@ -233,6 +246,7 @@ input[type=text] {
     color: black;
     margin: 10px;
     }
+    
     #main {
     padding: 16px;
     margin-left: 50px;
@@ -312,7 +326,7 @@ input[type=text] {
 }
 
 @media screen and (max-width: 600px) {
-    .sidenav {padding-top: 15px;}
+    .sidenav {padding-top: 15px; padding-bottom: 15px;}
     .sidenav a {font-size: 18px;}
     .sidenav {
     height: 30px;
@@ -332,6 +346,7 @@ input[type=text] {
     display: inline;
     color: black;
     margin: 10px;
+    padding-bottom: 10px;
     }
     #main {
     padding: 16px;
@@ -393,6 +408,8 @@ input[type=text] {
     <a href="index.html" style="color: #fff">HOME</a>
     <a href="calendar.html">CALENDAR</a>
     <a href="notes.html">NOTES</a>
+    <a href="##"><button type="button" id="btn" class="loginbtn" style="border: none; height: 25px; width: 55px;">LOGIN</button></a>
+    </div>
     </div>
     
     
@@ -400,7 +417,8 @@ input[type=text] {
     
 
     <div id="main">
-    <h1>Welcome<%= title %>
+    <h1>Welcome
+      <%= title %>
     </h1>
     <div id="date"></div>
     <div id="month"></div>
@@ -418,18 +436,12 @@ input[type=text] {
     What are you grateful for today?
     </br>
 
-    
-    <form action="/greatful" method="POST">
-      
-      <input id="input-box" name="msg" type="text"/>
-      <button type="submit" id="btn">SAVE</button>
-    </form>
-    <script lang="javascript">
-      // changes the greatful input box to the data from ejs
-      var inputValue = '<%= inputContent %>'
-      document.getElementById("input-box").value = inputValue
-    </script>
-
+    <form>
+   
+    <input type="text"/>
+    </br>
+    <button type="button" id="btn">SAVE</button>
+</form>
     </br>
         <!-- <button onclick="location.reload()">Reload</button> -->
     </div>
