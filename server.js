@@ -45,13 +45,13 @@ const Users = mongoose.model('Users', user)
  *       have to change the a href for all the files            *
  ****************************************************************/
 app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
-    res.render('login.ejs', { title: "" })
+    res.render('index.ejs', { title: "" })
 })
 app.get('/calendar.html', (req, res) => {
-    res.render('calendar.html')
+    res.render('calendar.ejs')
 })
 app.get('/notes.html', (req, res) => {
-    res.render('notes.html')
+    res.render('notes.ejs')
 })
 app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs', { placeHold: "Email Address", classRed: ""})
@@ -60,7 +60,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: ""})
 })
 app.get('/ind', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { title: " ," + req.user[0].fName})
+    res.render('index.ejs', { title: ", " + req.user[0].fName})
 })
 
 var firstN = ""
@@ -118,7 +118,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 
 app.delete('/logout', (req, res) => {
     req.logOut()
-    res.redirect('/login') //TODO: or home page
+    res.redirect('/login')
 })
 
 //TODO:
