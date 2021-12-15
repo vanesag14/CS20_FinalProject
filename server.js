@@ -15,7 +15,7 @@ const methodOverride = require('method-override') //allows for app.delete to be 
 const initializePassport = require('./passport-config')
 initializePassport(
     passport, 
-    emailAdd =>  Users.find({ email: emailAdd}).then(),
+    emailAdd => Users.find({ email: emailAdd}).then(),
     id => Users.find({ _id: id}).then()
 ) 
 
@@ -44,8 +44,8 @@ const Users = mongoose.model('Users', user)
  *   TODO:                .GET                                  *
  *       have to change the a href for all the files            *
  ****************************************************************/
-app.get('/', (req, res) => {
-    res.render('index.ejs', { title: "" })
+app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
+    res.render('login.ejs', { title: "" })
 })
 app.get('/calendar.html', (req, res) => {
     res.render('calendar.html')
@@ -62,13 +62,12 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
 app.get('/ind', checkAuthenticated, (req, res) => {
     res.render('index.ejs', { title: " ," + req.user[0].fName})
 })
-//when the user recently registered an account
-//TODO: app.gets below NEEDS TO CHECK IF USER IS AUTHENTICATED before accessing
+
 var firstN = ""
 app.get('/rlogin', checkAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: "Welcome " + firstN + ","})
 })
-app.get('/eregister', (req, res) => {
+app.get('/eregister', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs', { placeHold: "Email Already in Use", classRed: "redPlaceholder"})
 })
 
@@ -132,7 +131,7 @@ app.delete('/logout', (req, res) => {
 //then take from database to put into the html
 
 
-app.listen(process.env.PORT || 3001, 
+app.listen(process.env.PORT || 3000, 
 	() => console.log("Server is running..."));
 
 
@@ -149,7 +148,7 @@ function checkAuthenticated(req, res, next) {
 
 function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-        return res.redirect('/ind') //TODO: or wherever they should be redirected to CHANGE TO BE A DIFFERENT LOGIN PAGE
+        return res.redirect('/ind')
     }
 
     next()
@@ -177,10 +176,13 @@ function createSchema() {
         lName: String,
         password: String,
         email: String,
-        calendar: {
+        calendar: [{
             date: Number, 
-            content: [String]
-        },
+            day: [{
+                content: String,
+                isChecked: Boolean
+            }]
+        }],
         deadlines: [{ 
             isChecked: Boolean, 
             content: String, 

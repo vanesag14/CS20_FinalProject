@@ -9,7 +9,7 @@ async function initialize(passport, getUserByEmail, getUserById) {
     //authenticates the user (called from the login)
     const authenticateUser = async (logEmail, logPassword, done) => {
         //looks for a user with the entered email address - assumes that all emails are unique
-        let user1 = await getUserByEmail(logEmail)
+        let user1 = await getUserByEmail(logEmail.toLowerCase())
         //if no user is retrieved from query
         if (user1.length === 0 ) {
             return done(null, false, { message: 'No user with that email' })
