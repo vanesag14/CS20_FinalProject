@@ -11,6 +11,11 @@ body {
 	  transition: background-color .5s;
 	}
 
+    #logo {
+            width: 80px;
+        }
+    
+
 .sidenav {
   height: 100%;
   width: 250px;
@@ -20,7 +25,7 @@ body {
   left: 0;
   background-color: #A5D9FF;
   transition: 0.5s;
-  padding-top: 200px;
+  padding-top: 10px;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -29,9 +34,6 @@ body {
     
 }
 
-#logo {
-      width: 80px;
-    }
 input[type=submit] {
     background-color: #e7e7e7; 
     color: black;
@@ -67,20 +69,69 @@ input[type=submit] {
     linear-gradient(#eee .1em, transparent .1em);
     background-size: 100% 1.11em;
     resize: none;
-    width: 100%;
-    height:600px;
+    width: calc(100% - 30px);
+    height:500px;
     border: none;
     outline: none;
+    margin: auto;
+    margin-left: 15px;
+    
+    
+  
+
+
 }
 
 
-/* .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-} */
+
+.bigbox {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.bigbox > div {
+        margin: 8px;
+    }
+
+.box {
+    border: solid 2px;
+    width: 30%;
+}
+.box2 {
+    padding-left: 20px;
+    
+}
+
+.input {
+    border: none;
+    font-family: inherit;
+    width: calc(100% - 30px);
+}
+
+.small a{
+    font-size: 20px;
+}
+
+#date-save {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	
+}
+#btn {
+	font-family: inherit;
+	width: 8%;
+	height: 38px;
+	border-radius: 10px;
+	background: #fff;
+	border: solid 1px;
+}
+
+#btn:hover {
+	cursor: pointer;
+}
 
 #main {
   transition: margin-left .5s;
@@ -89,14 +140,43 @@ input[type=submit] {
   
 }
 
+@media (max-width: 700px) {
+    .bigbox {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: space-around;
+        
+    }
+
+    .bigbox > div {
+        margin: 8px;
+    }
+
+    .box {
+        width: 90%;
+        margin: auto;
+        flex-basis: 10%;
+    }
+
+    .box2 {
+    padding-left: 20px;
+    
+    }
+
+    #btn {
+        /* width: calc(100% - 400px); */
+        width: 15%;
+    }
+}
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav a {font-size: 18px; margin: 10px 20px;}
 }
 
 @media screen and (max-width: 1000px) {
     .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 15px;}
+    .sidenav a {font-size: 18px;}
     .sidenav {
     height: 30px;
     width: 100%;
@@ -127,52 +207,72 @@ input[type=submit] {
         text-align: center;
     }
     #logo {
-      display: none;
+		display: none; }
+
+       
+	}
+    .sidenav a{
+		margin: 10px;
+                  
     }
-}
 </style>
 </head>
 <body>
 
 <div id="mySidenav" class="sidenav">
     <div class="small">
-      <a href="index.html" ><img src="LOGO-l.png" alt="logo" id="logo"
-				style="padding-bottom: 50px;"></a>
-        <a href="index.html">Home</a>
-        <a href="calendar.html">Calendar</a>
-        <a href="notes.html">Notes</a>
+        <a href="index.html" ><img src="LOGO-l.png" alt="logo" id="logo"
+            style="padding-bottom: 50px;"></a>
+        <a href="index.html" >HOME</a>
+        <a href="calendar.html" >CALENDAR</a>
+        <a href="notes.html" style="color: #fff;">NOTES</a>
         </div>
 </div>
 
 <div id="main">
+    <div id="date-save">
+    <h2 style="width: 80%; display: inline-block;">NOTES</h2>
+    <button type="button" id="btn">SAVE</button>
+    </div>
+
     <form>
-        <div id="row">
-            <textarea class="lines"></textarea>
-            <!-- credits 
-            https://projects.verou.me/css3patterns/#lined-paper -->
-            <!-- <div id="left">
-                <button id="addnotes" type="button">Add Note</button>
-                <div id="notes_list">
-                    <div class="notes_list_item">
-                        <div class="notes_title">Lecture notes</div>
-                        <div class="notes_body">I learned nothing</div>
-                        <div class="notes_updated"></div>
-                    </div>
-                </div>
+
+        <div class="bigbox"> 
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 1"></h4>
+                <textarea class="lines"></textarea>
             </div>
-                  <div id="right">
-                    <input class="title" type=text placeholder="Enter title..">
-                    <textarea class="body">I am notes body</textarea>
-                      
-                </div>
-          </div> -->
-          
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 2"></h4>
+                <textarea class="lines"></textarea>
+            </div>
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 3"></h4>
+                <textarea class="lines"></textarea>
+            </div>
         </div>
-        <div class="submit">
-            <button type="submit" value="Save"></button>
+        
+        <div class="bigbox"> 
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 4"></h4>
+                <textarea class="lines"></textarea>
+            </div>
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 5"></h4>
+                <textarea class="lines"></textarea>
+            </div>
+            <div class="box">
+                <h4 class="box2"><input type="text" class="input" value="Notes Title 6"></h4>
+                <textarea class="lines"></textarea>
+            </div>
         </div>
+
+
+
+
+      
     </form>
-  <h2>Notes</h2>
+ 
   
 </div>
 
