@@ -11,6 +11,10 @@ body {
 	  font-family: "Montserrat", sans-serif;
 	  transition: background-color .5s;
 	}
+  #logo {
+				width: 80px;
+			}
+  
 .sidenav {
   height: 100%;
   width: 250px;
@@ -20,13 +24,13 @@ body {
   left: 0;
   background-color: #A5D9FF;
   transition: 0.5s;
-  padding-top: 200px;
+  padding-top: 10px;
 }
 .sidenav a {
   /* padding: 8px 8px 8px 32px; */
   padding-top: 50px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: black;
   display: block;
   transition: 0.3s;
@@ -143,6 +147,7 @@ input[type=text] {
     font-size: 15px;
     display: inline;
     color: black;
+    margin: 10px;
     }
     #main {
     padding: 16px;
@@ -152,6 +157,9 @@ input[type=text] {
     .small {
         text-align: center;
     }
+
+    #logo {
+				display: none; }
 }
 </style>
 </head>
@@ -159,9 +167,11 @@ input[type=text] {
 
     <div id="mySidenav" class="sidenav">
     <div class="small">
-    <a href="index.html">Home</a>
-    <a href="calendar.html">Calendar</a>
-    <a href="notes.html">Notes</a>
+      <a href="index.html" ><img src="LOGO-l.png" alt="logo" id="logo"
+				style="padding-bottom: 50px;"></a>  
+    <a href="index.html" style="color: #fff">HOME</a>
+    <a href="calendar.html">CALENDAR</a>
+    <a href="notes.html">NOTES</a>
     </div>
     </div>
 

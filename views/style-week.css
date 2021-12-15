@@ -17,6 +17,7 @@ body {
   left: 0;
   background-color: #A5D9FF;
   transition: 0.5s;
+	/* new */
   padding-top: 10px;
 }
 
