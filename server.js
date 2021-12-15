@@ -60,7 +60,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: ""})
 })
 app.get('/ind', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { title: " ," + req.user[0].fName})
+    res.render('index.ejs', { title: ", " + req.user[0].fName})
 })
 
 var firstN = ""
