@@ -51,6 +51,7 @@ app.get('/month.html', (req,res) => {
     res.render('month.ejs')
 })
 app.get('/calendar.html', (req, res) => {
+    console.log(req.user[0].calendar[0].day[0])
     if(req.isAuthenticated()) {
         res.render('calendar.ejs', { 
             reminder1: req.user[0].reminders[0].content,
@@ -66,8 +67,49 @@ app.get('/calendar.html', (req, res) => {
             deadline7: req.user[0].deadlines[6].content,
             deadline8: req.user[0].deadlines[7].content,
             deadline9: req.user[0].deadlines[8].content,
-            deadline10: req.user[0].deadlines[9].content
-
+            deadline10: req.user[0].deadlines[9].content,
+            mon1: req.user[0].calendar[0].day[0].content,
+            mon2: req.user[0].calendar[0].day[1].content,
+            mon3: req.user[0].calendar[0].day[2].content,
+            mon4: req.user[0].calendar[0].day[3].content,
+            mon5: req.user[0].calendar[0].day[4].content,
+            mon6: req.user[0].calendar[0].day[5].content,
+            tue1: req.user[0].calendar[1].day[0].content,
+            tue2: req.user[0].calendar[1].day[1].content,
+            tue3: req.user[0].calendar[1].day[2].content,
+            tue4: req.user[0].calendar[1].day[3].content,
+            tue5: req.user[0].calendar[1].day[4].content,
+            tue6: req.user[0].calendar[1].day[5].content,
+            wed1: req.user[0].calendar[2].day[0].content,
+            wed2: req.user[0].calendar[2].day[1].content,
+            wed3: req.user[0].calendar[2].day[2].content,
+            wed4: req.user[0].calendar[2].day[3].content,
+            wed5: req.user[0].calendar[2].day[4].content,
+            wed6: req.user[0].calendar[2].day[5].content,
+            thu1: req.user[0].calendar[3].day[0].content,
+            thu2: req.user[0].calendar[3].day[1].content,
+            thu3: req.user[0].calendar[3].day[2].content,
+            thu4: req.user[0].calendar[3].day[3].content,
+            thu5: req.user[0].calendar[3].day[4].content,
+            thu6: req.user[0].calendar[3].day[5].content,
+            fri1: req.user[0].calendar[4].day[0].content,
+            fri2: req.user[0].calendar[4].day[1].content,
+            fri3: req.user[0].calendar[4].day[2].content,
+            fri4: req.user[0].calendar[4].day[3].content,
+            fri5: req.user[0].calendar[4].day[4].content,
+            fri6: req.user[0].calendar[4].day[5].content,
+            sat1: req.user[0].calendar[5].day[0].content,
+            sat2: req.user[0].calendar[5].day[1].content,
+            sat3: req.user[0].calendar[5].day[2].content,
+            sat4: req.user[0].calendar[5].day[3].content,
+            sat5: req.user[0].calendar[5].day[4].content,
+            sat6: req.user[0].calendar[5].day[5].content,
+            sun1: req.user[0].calendar[6].day[0].content,
+            sun2: req.user[0].calendar[6].day[1].content,
+            sun3: req.user[0].calendar[6].day[2].content,
+            sun4: req.user[0].calendar[6].day[3].content,
+            sun5: req.user[0].calendar[6].day[4].content,
+            sun6: req.user[0].calendar[6].day[5].content
         })
     } else {
         res.render('calendar.ejs', { 
@@ -85,6 +127,48 @@ app.get('/calendar.html', (req, res) => {
             deadline8: "",
             deadline9: "",
             deadline10: "",
+            mon1: "",
+            mon2: "",
+            mon3: "",
+            mon4: "",
+            mon5: "",
+            mon6: "",
+            tue1: "",
+            tue2: "",
+            tue3: "",
+            tue4: "",
+            tue5: "",
+            tue6: "",
+            wed1: "",
+            wed2: "",
+            wed3: "",
+            wed4: "",
+            wed5: "",
+            wed6: "",
+            thu1: "",
+            thu2: "",
+            thu3: "",
+            thu4: "",
+            thu5: "",
+            thu6: "",
+            fri1: "",
+            fri2: "",
+            fri3: "",
+            fri4: "",
+            fri5: "",
+            fri6: "",
+            sat1: "",
+            sat2: "",
+            sat3: "",
+            sat4: "",
+            sat5: "",
+            sat6: "",
+            sun1: "",
+            sun2: "",
+            sun3: "",
+            sun4: "",
+            sun5: "",
+            sun6: ""
         })
     
     }
@@ -151,11 +235,204 @@ app.get('/logout', checkAuthenticated, (req, res) => {
  
 
 app.post('/reminders', checkAuthenticated, async (req, res) => {
-    console.log(req.user[0].deadlines)
-    console.log(req.user[0].reminders)
-    console.log(req.body.deadline1)
-    //console.log(req.body.deadlines1)
+    
     await Users.updateOne({ _id: req.user[0]._id }, {
+        calendar: [{
+            date: req.body.monDate, 
+            day: [{
+                content: req.body.mon0,
+                isChecked: false
+            },
+            {
+                content: req.body.mon1,
+                isChecked: false
+            },
+            {
+                content: req.body.mon2,
+                isChecked: false
+            },
+            {
+                content: req.body.mon3,
+                isChecked: false
+            },
+            {
+                content: req.body.mon4,
+                isChecked: false
+            },
+            {
+                content: req.body.mon5,
+                isChecked: false
+            }
+            ]
+        },
+        {
+            date: req.body.tueDate, 
+            day: [{
+                content: req.body.tue0,
+                isChecked: false
+            },
+            {
+                content: req.body.tue1,
+                isChecked: false
+            },
+            {
+                content: req.body.tue2,
+                isChecked: false
+            },
+            {
+                content: req.body.tue3,
+                isChecked: false
+            },
+            {
+                content: req.body.tue4,
+                isChecked: false
+            },
+            {
+                content: req.body.tue5,
+                isChecked: false
+            }
+            ]
+        },
+        {
+            date: req.body.wedDate, 
+            day: [{
+                content: req.body.wed0,
+                isChecked: false
+            },
+            {
+                content: req.body.wed1,
+                isChecked: false
+            },
+            {
+                content: req.body.wed2,
+                isChecked: false
+            },
+            {
+                content: req.body.wed3,
+                isChecked: false
+            },
+            {
+                content: req.body.wed4,
+                isChecked: false
+            },
+            {
+                content: req.body.wed5,
+                isChecked: false
+            }
+            ]
+        },
+        {
+            date: req.body.thuDate, 
+            day: [{
+                content: req.body.thu0,
+                isChecked: false
+            },
+            {
+                content: req.body.thu1,
+                isChecked: false
+            },
+            {
+                content: req.body.thu2,
+                isChecked: false
+            },
+            {
+                content: req.body.thu3,
+                isChecked: false
+            },
+            {
+                content: req.body.thu4,
+                isChecked: false
+            },
+            {
+                content: req.body.thu5,
+                isChecked: false
+            }
+            ]
+        },
+        {
+            date: req.body.friDate, 
+            day: [{
+                content: req.body.fri0,
+                isChecked: false
+            },
+            {
+                content: req.body.fri1,
+                isChecked: false
+            },
+            {
+                content: req.body.fri2,
+                isChecked: false
+            },
+            {
+                content: req.body.fri3,
+                isChecked: false
+            },
+            {
+                content: req.body.fri4,
+                isChecked: false
+            },
+            {
+                content: req.body.fri5,
+                isChecked: false
+            }
+            ]
+        },
+        {
+            date: req.body.satDate, 
+            day: [{
+                content: req.body.sat0,
+                isChecked: false
+            },
+            {
+                content: req.body.sat1,
+                isChecked: false
+            },
+            {
+                content: req.body.sat2,
+                isChecked: false
+            },
+            {
+                content: req.body.sat3,
+                isChecked: false
+            },
+            {
+                content: req.body.sat4,
+                isChecked: false
+            },
+            {
+                content: req.body.sat5,
+                isChecked: false
+            }
+            ]
+        },
+        {
+            date: req.body.sunDate, 
+            day: [{
+                content: req.body.sun0,
+                isChecked: false
+            },
+            {
+                content: req.body.sun1,
+                isChecked: false
+            },
+            {
+                content: req.body.sun2,
+                isChecked: false
+            },
+            {
+                content: req.body.sun3,
+                isChecked: false
+            },
+            {
+                content: req.body.sun4,
+                isChecked: false
+            },
+            {
+                content: req.body.sun5,
+                isChecked: false
+            }
+            ]
+        }],
         reminders: [{
             content: req.body.one
         },
@@ -198,10 +475,11 @@ app.post('/reminders', checkAuthenticated, async (req, res) => {
         { 
             content: req.body.deadline10,
         }]
+
+
     })
-    //console.log(req.body.deadlineDate1)
-    //console.log(req.body.checkbox1)
-    //res.redirect('back')
+    
+    res.redirect('back')
 })
 app.post('/greatful', checkAuthenticated, async (req, res) => {
     
@@ -270,7 +548,196 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
                         day: [{
                             content: "",
                             isChecked: false
-                        }]
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        }
+                        ]
+                    },
+                    {
+                        date: 0, 
+                        day: [{
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        }
+                        ]
+                    },
+                    {
+                        date: 0, 
+                        day: [{
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        }
+                        ]
+                    },
+                    {
+                        date: 0, 
+                        day: [{
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        }
+                        ]
+                    },
+                    {
+                        date: 0, 
+                        day: [{
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        }
+                        ]
+                    },
+                    {
+                        date: 0, 
+                        day: [{
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        }
+                        ]
+                    },
+                    {
+                        date: 0, 
+                        day: [{
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        },
+                        {
+                            content: "",
+                            isChecked: false
+                        }
+                        ]
                     }],
                     deadlines: [{ 
                         isChecked: false, 
