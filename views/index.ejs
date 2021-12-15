@@ -85,6 +85,7 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
 #month {
     color: black;
     /* Center vertically and horizontally */
@@ -94,6 +95,7 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
 #grateful {
     color: black;
     /* Center vertically and horizontally */
@@ -103,11 +105,13 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
 #icon {
     position: fixed;
     left: 90%;
     top: 0%;
 }
+
 #weather {
     position: absolute;
     left: 91.6%;
@@ -136,16 +140,16 @@ input[type=text] {
 
 @media screen and (max-width: 1350px) {
     #ct7 {
-    font-size: 70px;
-    font-family: 'Orbitron', sans-serif;
-    color: black;
-    /* Center vertically and horizontally */
-    position: absolute;
-    top: 50%;
-    left: 57.5%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}   
+        font-size: 70px;
+        font-family: 'Orbitron', sans-serif;
+        color: black;
+        /* Center vertically and horizontally */
+        position: absolute;
+        top: 50%;
+        left: 57.5%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    } 
 }
 
 @media screen and (max-width: 1350px) {
@@ -192,9 +196,90 @@ input[type=text] {
     .small {
         text-align: center;
     }
-
     #logo {
-				display: none; }
+        display: none; 
+    }
+    #icon {
+        position: fixed;
+        left: 90%;
+        top: 4%;
+    }
+    #weather {
+        position: absolute;
+        left: 91.6%;
+        top: 13%;
+        font-size: 15px;
+    }
+    #ct7 {
+    font-size: 50px;
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#data {
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-style: italic;
+}
+#date {
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#month {
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#grateful {
+    color: black;
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+}
+
+@media screen and (max-width: 800px) {
+    #logo {
+        display: none; 
+    }
+    #icon {
+        position: absolute;
+        left: 40%;
+        top: 15%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #weather {
+        position: absolute;
+        
+        top: 25%;
+        left: 45%;
+        font-size: 15px;
+    }
 }
 </style>
 </head>
@@ -227,7 +312,11 @@ input[type=text] {
     </br>
     What are you grateful for today?
     </br>
+    <form>
+   
     <input type="text"/>
+    <button type="button" id="btn">SAVE</button>
+</form>
     </br>
         <!-- <button onclick="location.reload()">Reload</button> -->
     </div>
