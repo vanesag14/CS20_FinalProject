@@ -57,16 +57,16 @@ app.get('/calendar.html', (req, res) => {
             reminder2: req.user[0].reminders[1].content,
             reminder3: req.user[0].reminders[2].content,
             reminder4: req.user[0].reminders[3].content,
-            deadline1: "",
-            deadline2: "",
-            deadline3: "",
-            deadline4: "",
-            deadline5: "",
-            deadline6: "",
-            deadline7: "",
-            deadline8: "",
-            deadline9: "",
-            deadline10: "",
+            deadline1: req.user[0].deadlines[0].content,
+            deadline2: req.user[0].deadlines[1].content,
+            deadline3: req.user[0].deadlines[2].content,
+            deadline4: req.user[0].deadlines[3].content,
+            deadline5: req.user[0].deadlines[4].content,
+            deadline6: req.user[0].deadlines[5].content,
+            deadline7: req.user[0].deadlines[6].content,
+            deadline8: req.user[0].deadlines[7].content,
+            deadline9: req.user[0].deadlines[8].content,
+            deadline10: req.user[0].deadlines[9].content
 
         })
     } else {
@@ -151,8 +151,10 @@ app.get('/logout', checkAuthenticated, (req, res) => {
  
 
 app.post('/reminders', checkAuthenticated, async (req, res) => {
-    // console.log(req.user[0].deadlines)
-    // console.log(req.body.deadlines1)
+    console.log(req.user[0].deadlines)
+    console.log(req.user[0].reminders)
+    console.log(req.body.deadline1)
+    //console.log(req.body.deadlines1)
     await Users.updateOne({ _id: req.user[0]._id }, {
         reminders: [{
             content: req.body.one
@@ -199,7 +201,7 @@ app.post('/reminders', checkAuthenticated, async (req, res) => {
     })
     //console.log(req.body.deadlineDate1)
     //console.log(req.body.checkbox1)
-    res.redirect('back')
+    //res.redirect('back')
 })
 app.post('/greatful', checkAuthenticated, async (req, res) => {
     
@@ -376,15 +378,6 @@ app.delete('/logout', (req, res) => {
     req.logOut()
     res.redirect('/login')
 })
-
-//TODO:
-//get views to work with css--
-//set up database with ability to add things--
-//implement registering system --
-//implement login system--
-    //create user authentication system--
-//figure out how to take from forms in html into the 
-//then take from database to put into the html
 
 
 app.listen(process.env.PORT || 3000, 
