@@ -11,19 +11,6 @@ body {
 	height: 100%;
 }
 
-#btn {
-	font-family: inherit;
-	width: 8%;
-	height: 38px;
-	border-radius: 10px;
-	background: #fff;
-	border: solid 1px;
-}
-
-#btn:hover {
-	cursor: pointer;
-}
-
 .sidenav {
 	/* float: left; */
   height: 100%;
