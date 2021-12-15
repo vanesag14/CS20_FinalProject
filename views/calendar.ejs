@@ -400,19 +400,27 @@
 			// document.getElementById("main").style.marginLeft = "250px";
 			
 			//Saves form data when button is pressed
-			$("#btn-saves").on("click", function() {
+			// $("#btn-saves").on("click", function() {
 				
-				$("#monday").submit(); 
-   				$("#tuesday").submit();
-				$("#wednesday").submit(); 
-   				$("#thursday").submit();
-				$("#friday").submit(); 
-   				$("#saturday").submit();
-				$("#sunday").submit(); 
-				$("#deadlines-form").submit();
-				$("#reminders-form").submit(); 
+			// 	$("#monday").submit(); 
+   			// 	$("#tuesday").submit();
+			// 	$("#wednesday").submit(); 
+   			// 	$("#thursday").submit();
+			// 	$("#friday").submit(); 
+   			// 	$("#saturday").submit();
+			// 	$("#sunday").submit(); 
+			// 	$("#deadlines-form").submit();
+			// 	$("#reminders-form").submit(); 
 
    				
+			// });
+			$("#btn-saves").on("click", function() {
+				
+				setTimeout(function(){ document.getElementById("reminders-form").submit();}, 3000);   
+				setTimeout(function(){ document.getElementById("deadlines-form").submit();}, 6000);  
+				setTimeout(function(){ document.getElementById("monday").submit();}, 9000); 
+
+
 			});
 
 			
