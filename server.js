@@ -48,7 +48,7 @@ app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
     res.render('index.ejs', { title: "" })
 })
 app.get('/calendar.html', (req, res) => {
-    res.render('calendar.html')
+    res.render('calendar.ejs')
 })
 app.get('/notes.html', (req, res) => {
     res.render('notes.html')
