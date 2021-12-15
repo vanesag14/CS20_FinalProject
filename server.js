@@ -149,7 +149,44 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
                     fName: req.body.fname,
                     lName: req.body.lname,
                     password: hashedPassword,
-                    email: lowerEmail
+                    email: lowerEmail,
+                    calendar: [{
+                        date: 0, 
+                        day: [{
+                            content: "",
+                            isChecked: false
+                        }]
+                    }],
+                    deadlines: [{ 
+                        isChecked: false, 
+                        content: "", 
+                        dueDate: 0 
+                    }],
+                    reminders: [{
+                        content: ""
+                    },
+                    {
+                        content: ""
+                    },
+                    {
+                        content: ""
+                    },
+                    {
+                        content: ""
+                    }],
+                    notes: [{
+                        title: "",
+                        content: [""]
+                    },
+                    {
+                        title: "",
+                        content: [""]
+                    },
+                    {
+                        title: "",
+                        content: [""]
+                    }],
+                    greatful: ""
                 })
                 user1.save()
 
