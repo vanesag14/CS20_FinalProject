@@ -5,6 +5,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <style>
 body {
 	  font-family: "Montserrat", sans-serif;
@@ -252,35 +253,35 @@ input[type=submit] {
     <button type="button" id="btn-save">SAVE</button>
     </div>
 
-    <form id="notes-form" method="POST">
+    <form id="notes-form" action="/notes" method="POST">
 
         <div class="bigbox"> 
             <div class="box">
-                <h4 class="box2"><input type="text" class="input" value="Notes Title 1"></h4>
-                <textarea class="lines"></textarea>
+                <h4 class="box2"><input type="text" id="title1" class="input" name="title1" value="Notes Title 1"></h4>
+                <textarea id="text1" name="textare1" class="lines"></textarea>
             </div>
             <div class="box">
-                <h4 class="box2"><input type="text" class="input" value="Notes Title 2"></h4>
-                <textarea class="lines"></textarea>
+                <h4 class="box2"><input type="text" id="title2" class="input" name="title2" value="Notes Title 2"></h4>
+                <textarea id="text2" name="textare2" class="lines"></textarea>
             </div>
             <div class="box">
-                <h4 class="box2"><input type="text" class="input" value="Notes Title 3"></h4>
-                <textarea class="lines"></textarea>
+                <h4 class="box2"><input type="text" id="title3" class="input" name="title3" value="Notes Title 3"></h4>
+                <textarea id="text3" name="textare3" class="lines"></textarea>
             </div>
         </div>
         
         <div class="bigbox"> 
             <div class="box">
-                <h4 class="box2"><input type="text" class="input" value="Notes Title 4"></h4>
-                <textarea class="lines"></textarea>
+                <h4 class="box2"><input type="text" id="title4" class="input" name="title4" value="Notes Title 4"></h4>
+                <textarea id="text4" name="textare4" class="lines"></textarea>
             </div>
             <div class="box">
-                <h4 class="box2"><input type="text" class="input" value="Notes Title 5"></h4>
-                <textarea class="lines"></textarea>
+                <h4 class="box2"><input type="text" id="title5" class="input" name="title5" value="Notes Title 5"></h4>
+                <textarea id="text5" name="textare5" class="lines"></textarea>
             </div>
             <div class="box">
-                <h4 class="box2"><input type="text" class="input" value="Notes Title 6"></h4>
-                <textarea class="lines"></textarea>
+                <h4 class="box2"><input type="text" id="title6" class="input" name="title6" value="Notes Title 6"></h4>
+                <textarea id="text6" name="textare6" class="lines"></textarea>
             </div>
         </div>
 
@@ -289,6 +290,40 @@ input[type=submit] {
         
       
     </form>
+
+    <script>
+        let inputTitle1 = '<%= noteTitle1 %>'
+        let inputTitle2 = '<%= noteTitle2 %>'
+        let inputTitle3 = '<%= noteTitle3 %>'
+        let inputTitle4 = '<%= noteTitle4 %>'
+        let inputTitle5 = '<%= noteTitle5 %>'
+        let inputTitle6 = '<%= noteTitle6 %>'
+
+        document.getElementById("title1").value = inputTitle1
+        document.getElementById("title2").value = inputTitle2
+        document.getElementById("title3").value = inputTitle3
+        document.getElementById("title4").value = inputTitle4
+        document.getElementById("title5").value = inputTitle5
+        document.getElementById("title6").value = inputTitle6
+
+        let inputArea1 = '<%= noteText1 %>'
+        let inputArea2 = '<%= noteText2 %>'
+        let inputArea3 = '<%= noteText3 %>'
+        let inputArea4 = '<%= noteText4 %>'
+        let inputArea5 = '<%= noteText5 %>'
+        let inputArea6 = '<%= noteText6 %>'
+
+
+        document.getElementById("text1").value = inputArea1
+        document.getElementById("text2").value = inputArea2
+        document.getElementById("text3").value = inputArea3
+        document.getElementById("text4").value = inputArea4
+        document.getElementById("text5").value = inputArea5
+        document.getElementById("text6").value = inputArea6
+
+        
+
+    </script>
  
   
 </div>

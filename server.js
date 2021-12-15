@@ -90,7 +90,39 @@ app.get('/calendar.html', (req, res) => {
     }
 })
 app.get('/notes.html', (req, res) => {
-    res.render('notes.ejs')
+    //if user is logged in
+    if(req.isAuthenticated()) { 
+        res.render('notes.ejs', {
+            noteTitle1: req.user[0].notes[0].title,
+            noteTitle2: req.user[0].notes[1].title,
+            noteTitle3: req.user[0].notes[2].title,
+            noteTitle4: req.user[0].notes[3].title,
+            noteTitle5: req.user[0].notes[4].title,
+            noteTitle6: req.user[0].notes[5].title,
+            noteText1: req.user[0].notes[0].content,
+            noteText2: req.user[0].notes[1].content,
+            noteText3: req.user[0].notes[2].content,
+            noteText4: req.user[0].notes[3].content,
+            noteText5: req.user[0].notes[4].content,
+            noteText6: req.user[0].notes[5].content
+        })
+    } else {
+        res.render('notes.ejs', {
+            noteTitle1: "",
+            noteTitle2: "",
+            noteTitle3: "",
+            noteTitle4: "",
+            noteTitle5: "",
+            noteTitle6: "",
+            noteText1: "",
+            noteText2: "",
+            noteText3: "",
+            noteText4: "",
+            noteText5: "",
+            noteText6: ""
+        })
+    }
+    
 })
 app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs', { placeHold: "Email Address", classRed: ""})
@@ -119,8 +151,8 @@ app.get('/logout', checkAuthenticated, (req, res) => {
  
 
 app.post('/reminders', checkAuthenticated, async (req, res) => {
-    console.log(req.user[0].deadlines)
-    console.log(req.body.deadlines1)
+    // console.log(req.user[0].deadlines)
+    // console.log(req.body.deadlines1)
     await Users.updateOne({ _id: req.user[0]._id }, {
         reminders: [{
             content: req.body.one
@@ -175,6 +207,36 @@ app.post('/greatful', checkAuthenticated, async (req, res) => {
         greatful: req.body.msg
     })
     res.redirect('back') //quick fix to stop the reloading
+})
+
+app.post('/notes', checkAuthenticated, async (req, res) => {
+    await Users.updateOne({ _id: req.user[0]._id }, {
+        notes: [{
+            title: req.body.title1,
+            content: req.body.textare1
+        },
+        {
+            title: req.body.title2,
+            content: req.body.textare2
+        },
+        {
+            title: req.body.title3,
+            content: req.body.textare3
+        },
+        {
+            title: req.body.title4,
+            content: req.body.textare4
+        },
+        {
+            title: req.body.title5,
+            content: req.body.textare5
+        },
+        {
+            title: req.body.title6,
+            content: req.body.textare6
+        }],
+    })
+    res.redirect('back')
 })
 
 //goes to home back on successful login
@@ -293,8 +355,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
                     {
                         title: "",
                         content: ""
-                    },
-                    ],
+                    }],
                     greatful: ""
                 })
                 user1.save()
