@@ -17,7 +17,7 @@ initializePassport(
     passport, 
     emailAdd => Users.find({ email: emailAdd}).then(),
     id => Users.find({ _id: id}).then()
-) 
+)
 
 //more configurations
 app.use(express.static(__dirname + '/views'))
