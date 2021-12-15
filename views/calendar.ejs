@@ -113,6 +113,7 @@
 										onclick="strikeThrough(this.id, document.getElementById('moninput5').id);"><input type="text" class="input" id="moninput5" name="4"><br></div>
 									<div id="parent6"><input type="checkbox" class="row-box" id="box6"
 										onclick="strikeThrough(this.id, document.getElementById('moninput6').id);"><input type="text" class="input" id="moninput6" name="5"><br></div>
+									<input type="hidden" id="hidden-mon" name="date">	
 							</form>
 						</div>
 					
@@ -135,6 +136,7 @@
 										onclick="strikeThrough(this.id, document.getElementById('tueinput5').id);"><input type="text" class="input" id="tueinput5" name="4"> <br></div>
 									<div id="parent12"><input type="checkbox" class="row-box" id="box12"
 										onclick="strikeThrough(this.id, document.getElementById('tueinput6').id);"><input type="text" class="input" id="tueinput6" name="5"> <br></div>
+										<input type="hidden" id="hidden-tue" name="date">	
 							</form>
 						</div>
 
@@ -159,7 +161,7 @@
 										onclick="strikeThrough(this.id, document.getElementById('wedinput5').id);"><input type="text" class="input" id="wedinput5" name="4"><br></div>
 									<div id="parent18"><input type="checkbox" class="row-box"  id="box18"
 										onclick="strikeThrough(this.id, document.getElementById('wedinput6').id);"><input type="text" class="input" id="wedinput6" name="5"><br></div>	
-								
+										<input type="hidden" id="hidden-wed" name="date">	
 							</form> 
 						</div>
 
@@ -188,7 +190,7 @@
 										onclick="strikeThrough(this.id, document.getElementById('thuinput5').id);"><input type="text" class="input" id="thuinput5" name="4"><br></div>	
 									<div id="parent24"><input type="checkbox" class="row-box"  id="box24"
 										onclick="strikeThrough(this.id, document.getElementById('thuinput6').id);"><input type="text" class="input" id="thuinput6" name="5"><br></div>	
-								
+										<input type="hidden" id="hidden-thu" name="date">	
 							</form>
 						</div>
 
@@ -211,6 +213,7 @@
 										onclick="strikeThrough(this.id, document.getElementById('friinput5').id);"><input type="text" class="input" id="friinput5" name="4"><br></div>	
 									<div id="parent30"><input type="checkbox" class="row-box"  id="box30"
 										onclick="strikeThrough(this.id, document.getElementById('friinput6').id);"><input type="text" class="input" id="friinput6" name="5"><br></div>
+										<input type="hidden" id="hidden-fri" name="date">	
 							</form method="post">
 						</div>
 
@@ -235,6 +238,7 @@
 										onclick="strikeThrough(this.id, document.getElementById('satinput5').id);"><input type="text" class="input-weekend" id="satinput5" name="4"> <br></div>
 									<div id="parent36"><input type="checkbox" class="row-box" id="box36"
 										onclick="strikeThrough(this.id, document.getElementById('satinput6').id);"><input type="text" class="input-weekend" id="satinput6" name="5"> <br></div>
+										<input type="hidden" id="hidden-sat" name="date">	
 								</form>
 							</div>
 
@@ -257,6 +261,7 @@
 										onclick="strikeThrough(this.id, document.getElementById('suninput5').id);"><input type="text" class="input-weekend" id="suninput5" name="4"> <br></div>
 									<div id="parent42"><input type="checkbox" class="row-box" id="box42"
 										onclick="strikeThrough(this.id, document.getElementById('suninput6').id);"><input type="text" class="input-weekend" id="suninput6" name="5"> <br></div>
+									<input type="hidden" id="hidden-sun" name="date">	
 								</form>
 
 							</div>
@@ -294,6 +299,7 @@
 									
 									</ul>
 								</form>
+						
 							</div>
 							<script lang="javascript">
 								let reminder1 = '<%= reminder1 %>'
@@ -404,8 +410,14 @@
 
 			
 			$("#monday").dirty({preventLeaving: true});
-
-
+			$("#tuesday").dirty({preventLeaving: true});
+			$("#wednesday").dirty({preventLeaving: true});
+			$("#thursday").dirty({preventLeaving: true});
+			$("#friday").dirty({preventLeaving: true});
+			$("#saturday").dirty({preventLeaving: true});
+			$("#sunday").dirty({preventLeaving: true});
+			$("#deadlines-form").dirty({preventLeaving: true});
+			$("#reminders-form").dirty({preventLeaving: true});
 			
 
 			
@@ -481,17 +493,34 @@
 
 					// styling
 					document.getElementById('0').innerHTML = month + '.' + day;
+					document.getElementById('hidden-sun').innerHTML = month + '.' + day;
+					
+					
+
+
 					document.getElementById('0').style.color = "#60a9dd";
 					document.getElementById('sun-text').style.color = "#60a9dd";
 					document.getElementById('suninput1').style.borderTop = "solid 1px #60a9dd";
 
 					//mon - sat
 					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('hidden-mon').innerHTML = month + '.' + mon;
+
 					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('hidden-tue').innerHTML = month + '.' + tue;
+
 					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('hidden-wed').innerHTML = month + '.' + wed;
+
 					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('hidden-thu').innerHTML = month + '.' + thu;
+
 					document.getElementById('5').innerHTML = month + '.' + fri;
+					document.getElementById('hidden-fri').innerHTML = month + '.' + fri;
+
 					document.getElementById('6').innerHTML = month + '.' + sat; 
+					document.getElementById('hidden-sat').innerHTML = month + '.' + sat;
+
 
 					if (day<10){
 						document.getElementById('0').innerHTML = month + '.0' + day;
@@ -528,16 +557,39 @@
 					
 
 					document.getElementById('1').innerHTML = month + '.' + day;
+					document.getElementById('hidden-mon').innerHTML = month + '.' + day;
+
+
+
+
+
 					document.getElementById('1').style.color = "#60a9dd";
 					document.getElementById('mon-text').style.color = "#60a9dd";
 					document.getElementById('moninput1').style.borderTop = "solid 1px #60a9dd";
 
 					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('hidden-sun').innerHTML = month + '.' + sun;
+
+
 					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('hidden-tue').innerHTML = month + '.' + tue;
+
 					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('hidden-wed').innerHTML = month + '.' + wed;
+
+
 					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('hidden-thu').innerHTML = month + '.' + thu;
+
+
 					document.getElementById('5').innerHTML = month + '.' + fri;
+					document.getElementById('hidden-fri').innerHTML = month + '.' + fri;
+
+
 					document.getElementById('6').innerHTML = month + '.' + sat; 
+					document.getElementById('hidden-sat').innerHTML = month + '.' + sat;
+
+
 
 					if (day<10){
 						document.getElementById('1').innerHTML = month + '.0' + day;
@@ -573,16 +625,33 @@
 					var sat = day + 4; //6
 
 					document.getElementById('2').innerHTML = month + '.' + day;
+					document.getElementById('hidden-tue').innerHTML = month + '.' + day;
+					//console.log(document.getElementById('hidden-tue').innerHTML = month + '.' + day);
+			
+
+
 					document.getElementById('2').style.color = "#60a9dd";
 					document.getElementById('tue-text').style.color = "#60a9dd";
 					document.getElementById('tueinput1').style.borderTop = "solid 1px #60a9dd";
 
 					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('hidden-sun').innerHTML = month + '.' + sun;
+
 					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('hidden-mon').innerHTML = month + '.' + mon;
+
 					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('hidden-wed').innerHTML = month + '.' + wed;
+
 					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('hidden-thu').innerHTML = month + '.' + thu;
+
 					document.getElementById('5').innerHTML = month + '.' + fri;
+					document.getElementById('hidden-fri').innerHTML = month + '.' + fri;
+
 					document.getElementById('6').innerHTML = month + '.' + sat; 
+					document.getElementById('hidden-sat').innerHTML = month + '.' + sat;
+
 
 					if (day<10){
 						document.getElementById('2').innerHTML = month + '.0' + day;
@@ -619,17 +688,32 @@
 					
 
 					document.getElementById('3').innerHTML = month + '.' + day;
+					document.getElementById('hidden-wed').innerHTML = month + '.' + day;
+
 					document.getElementById('3').style.color = "#60a9dd";
 					document.getElementById('wed-text').style.color = "#60a9dd";
 					document.getElementById('wedinput1').style.borderTop = "solid 1px #60a9dd";
 
 					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('hidden-sun').innerHTML = month + '.' + sun;
+
 					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('hidden-mon').innerHTML = month + '.' + mon;
+
 					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('hidden-tue').innerHTML = month + '.' + tue;
+
 					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('hidden-thu').innerHTML = month + '.' + thu;
+
 					document.getElementById('5').innerHTML = month + '.' + fri;
-					document.getElementById('6').innerHTML = month + '.' + sat; 
+					document.getElementById('hidden-fri').innerHTML = month + '.' + fri;
+
+					document.getElementById('6').innerHTML = month + '.' + sat;
+					document.getElementById('hidden-sat').innerHTML = month + '.' + sat; 
 					
+
+
 					if (day<10){
 						document.getElementById('3').innerHTML = month + '.0' + day;
 					}
@@ -665,16 +749,29 @@
 					
 
 					document.getElementById('4').innerHTML = month + '.' + day;
+					document.getElementById('hidden-thu').innerHTML = month + '.' + day;
+
 					document.getElementById('4').style.color = "#60a9dd";
 					document.getElementById('thu-text').style.color = "#60a9dd";
 					document.getElementById('thuinput1').style.borderTop = "solid 1px #60a9dd";
 
 					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('hidden-sun').innerHTML = month + '.' + sun;
+
 					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('hidden-mon').innerHTML = month + '.' + mon;
+
 					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('hidden-tue').innerHTML = month + '.' + tue;
+
 					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('hidden-wed').innerHTML = month + '.' + wed;
+
 					document.getElementById('5').innerHTML = month + '.' + fri;
+					document.getElementById('hidden-fri').innerHTML = month + '.' + fri;
+
 					document.getElementById('6').innerHTML = month + '.' + sat; 
+					document.getElementById('hidden-sat').innerHTML = month + '.' + sat;
 					
 					if (day<10){
 						document.getElementById('4').innerHTML = month + '.0' + day;
@@ -710,16 +807,30 @@
 					var sat = day + 1; //6
 
 					document.getElementById('5').innerHTML = month + '.' + day;
+					document.getElementById('hidden-fri').innerHTML = month + '.' + day;
+
+
 					document.getElementById('5').style.color = "#60a9dd";
 					document.getElementById('fri-text').style.color = "#60a9dd";
 					document.getElementById('friinput1').style.borderTop = "solid 1px #60a9dd";
 
 					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('hidden-sun').innerHTML = month + '.' + sun;
+
 					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('hidden-mon').innerHTML = month + '.' + mon;
+
 					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('hidden-tue').innerHTML = month + '.' + tue;
+
 					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('hidden-wed').innerHTML = month + '.' + wed;
+
 					document.getElementById('4').innerHTML = month + '.' + thu;
-					document.getElementById('6').innerHTML = month + '.' + sat; 
+					document.getElementById('hidden-thu').innerHTML = month + '.' + thu;
+					
+					document.getElementById('6').innerHTML = month + '.' + sat;
+					document.getElementById('hidden-sat').innerHTML = month + '.' + sat; 
 
 					if (day<10){
 						document.getElementById('5').innerHTML = month + '.0' + day;
@@ -755,16 +866,33 @@
 					var fri = day - 1; //5
 
 					document.getElementById('6').innerHTML = month + '.' + day;
+					document.getElementById('hidden-sat').innerHTML = month + '.' + day;
+
 					document.getElementById('6').style.color = "#60a9dd";
 					document.getElementById('sat-text').style.color = "#60a9dd";
 					document.getElementById('satinput1').style.borderTop = "solid 1px #60a9dd";
 
 					document.getElementById('0').innerHTML = month + '.' + sun;
+					document.getElementById('hidden-sun').innerHTML = month + '.' + sun;
+
 					document.getElementById('1').innerHTML = month + '.' + mon;
+					document.getElementById('hidden-mon').innerHTML = month + '.' + mon;
+
 					document.getElementById('2').innerHTML = month + '.' + tue;
+					document.getElementById('hidden-tue').innerHTML = month + '.' + tue;
+
 					document.getElementById('3').innerHTML = month + '.' + wed;
+					document.getElementById('hidden-wed').innerHTML = month + '.' + wed;
+
+
 					document.getElementById('4').innerHTML = month + '.' + thu;
+					document.getElementById('hidden-thu').innerHTML = month + '.' + thu;
+
+
 					document.getElementById('5').innerHTML = month + '.' + fri; 
+					document.getElementById('hidden-fri').innerHTML = month + '.' + fri;
+
+
 
 					if (day<10){
 						document.getElementById('5').innerHTML = month + '.0' + day;
