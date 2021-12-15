@@ -77,6 +77,14 @@ app.get('/logout', checkAuthenticated, (req, res) => {
 /****************************************************
  *                     POST                         *
  ****************************************************/
+app.post('/greatful', checkAuthenticated, async (req, res) => {
+    
+    await Users.updateOne({ email: req.user[0].email }, {
+        greatful: req.body.msg
+    })
+    res.redirect('back')
+})
+
 //goes to home back on successful login
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     successRedirect: '/ind',
