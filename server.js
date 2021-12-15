@@ -51,7 +51,7 @@ app.get('/calendar.html', (req, res) => {
     res.render('calendar.ejs')
 })
 app.get('/notes.html', (req, res) => {
-    res.render('notes.html')
+    res.render('notes.ejs')
 })
 app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs', { placeHold: "Email Address", classRed: ""})
@@ -118,7 +118,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 
 app.delete('/logout', (req, res) => {
     req.logOut()
-    res.redirect('/login') //TODO: or home page
+    res.redirect('/login')
 })
 
 //TODO:
