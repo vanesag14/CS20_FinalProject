@@ -13,7 +13,11 @@ const methodOverride = require('method-override') //allows for app.delete to be 
 
 //sets up passport configuration
 const initializePassport = require('./passport-config')
-initializePassport(passport) 
+initializePassport(
+    passport, 
+    emailAdd =>  Users.find({ email: emailAdd}).then(),
+    id => Users.find({ _id: id}).then()
+) 
 
 //more configurations
 app.use(express.static(__dirname + '/views'))
@@ -56,8 +60,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: ""})
 })
 app.get('/ind', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { title: " ," + req.user.obj.fName })
-    console.log(req.user.obj.fName)
+    res.render('index.ejs', { title: " ," + req.user[0].fName})
 })
 //when the user recently registered an account
 //TODO: app.gets below NEEDS TO CHECK IF USER IS AUTHENTICATED before accessing
