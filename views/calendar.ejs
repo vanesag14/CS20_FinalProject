@@ -61,7 +61,7 @@
 			<a href="index.html">HOME</a>
 			<a href="calendar.html" style="color:#fff;">CALENDAR</a>
 			<a href="notes.html">NOTES</a>
-            <a href="##"><button type="button" id="btn" class="loginbtn" style="border: none; height: 25px; width: 55px;">LOGIN</button></a>
+            <a href="/login"><button type="button" id="btn" class="loginbtn" style="border: none; height: 25px; width: 55px;">LOGIN</button></a>
 		</div>
 
 
@@ -69,9 +69,9 @@
 			
 			<div id="HASH" class="calnav">
 				<ul>	
-					<span><li class="week"><a href="calendar.html">WEEK </a></li></span>
-					<span><li class="month"><a href="month.html">MONTH</a></li></span>
-					<span><a href="login.html"><i style="color: #000;" class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i></a></span>
+					<span><li class="week"><a href="/calendar.html">WEEK </a></li></span>
+					<span><li class="month"><a href="/month.html">MONTH</a></li></span>
+					<span><a href="/login"><i style="color: #000;" class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i></a></span>
 					<!-- <span><li><a href="../index.html" ><img src="LOGO2.png" alt="logo" id="logo" class="logo"></a></li></span> -->
 				</ul>
 			</div>
@@ -83,7 +83,7 @@
 				<!-- Main date and year displayed -->
 				<div id="date-save">
 					<h3 style="font-size: 30px;" id="month-year-main"></h3>
-					<button type="button" id="btn-saves">SAVE</button>
+					<button type="button" id="btn">SAVE</button>
 				</div>
 			
 				
@@ -297,6 +297,7 @@
 										</li>
 									
 									</ul>
+
 								</form>
 						
 							</div>
@@ -321,7 +322,7 @@
 									<input type="checkbox" id="checkbox1" name="checkbox1"
 									onclick="strikeThrough(this.id, document.getElementById('todo1').id);"> 
 									<input type="text" class="todolist" id="todo1" name="deadline1"> 
-									<input type="date" class="date"><br> <br>
+									<input type="date" class="date" name="deadlineDate1"><br> <br>
 		
 									<input type="checkbox" id="checkbox2"
 									onclick="strikeThrough(this.id, document.getElementById('todo2').id);"> 
@@ -392,7 +393,7 @@
 			// document.getElementById("main").style.marginLeft = "250px";
 			
 			//Saves form data when button is pressed
-			$("#btn-saves").on("click", function() {
+			$("#btn").on("click", function() {
 				
 				$("#monday").submit(); 
    				$("#tuesday").submit();
@@ -405,9 +406,6 @@
 				$("#reminders-form").submit(); 
 
    				
-
-
-
 			});
 
 			

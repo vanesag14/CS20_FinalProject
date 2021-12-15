@@ -47,6 +47,9 @@ const Users = mongoose.model('Users', user)
 app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
     res.render('index.ejs', { title: "", inputContent: ""})
 })
+app.get('/month.html', (req,res) => {
+    res.render('month.ejs')
+})
 app.get('/calendar.html', (req, res) => {
     if(req.isAuthenticated()) {
         res.render('calendar.ejs', { 
@@ -71,7 +74,7 @@ app.get('/notes.html', (req, res) => {
 app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs', { placeHold: "Email Address", classRed: ""})
 })
-app.get('/login', checkNotAuthenticated, (req, res) => {
+app.get(['/login', 'login.html'], checkNotAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: ""})
 })
 app.get('/ind', checkAuthenticated, (req, res) => {
@@ -92,19 +95,6 @@ app.get('/logout', checkAuthenticated, (req, res) => {
 /****************************************************
  *                     POST                         *
  ****************************************************/
-// app.post('/reminders', checkAuthenticated, async (req, res) => {
-//     booleans = []
-    
-//     console.log("booleans")
-//     await Users.updateOne({ _id: req.user[0]._id }, {
-//         deadlines: [{ 
-//             isChecked: Boolean, 
-//             content: String, 
-//             dueDate: Number 
-//         }]
-//     })
-//     res.redirect('back')
-// })
 app.post('/reminders', checkAuthenticated, async (req, res) => {
     await Users.updateOne({ _id: req.user[0]._id }, {
         reminders: [{
@@ -119,13 +109,14 @@ app.post('/reminders', checkAuthenticated, async (req, res) => {
         {
             content: req.body.four
         }],
-        // deadlines: [{ 
-        //     content: String, 
-        //     dueDate: Number 
-        // }]
+        deadlines: [{ 
+            content: req.body.deadline1,
+            dueDate:  12
+        }]
     })
-    console.log(req.body.checkbox1)
-    //res.redirect('back')
+    console.log(req.body.deadlineDate1)
+    //console.log(req.body.checkbox1)
+    res.redirect('back')
 })
 app.post('/greatful', checkAuthenticated, async (req, res) => {
     
