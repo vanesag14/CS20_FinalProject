@@ -433,7 +433,7 @@ span {
 
 @media screen and (max-width: 1000px) {
 
-    .sidenav {padding-top: 15px;}
+    .sidenav {padding-top: 15px; padding-bottom: 25px;}
     .sidenav a {font-size: 18px;}
     .sidenav {
     height: 30px;
