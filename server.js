@@ -45,7 +45,7 @@ const Users = mongoose.model('Users', user)
  *       have to change the a href for all the files            *
  ****************************************************************/
 app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
-    res.render('login.ejs', { title: "" })
+    res.render('index.ejs', { title: "" })
 })
 app.get('/calendar.html', (req, res) => {
     res.render('calendar.html')
