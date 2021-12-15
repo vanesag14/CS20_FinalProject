@@ -48,7 +48,22 @@ app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
     res.render('index.ejs', { title: "", inputContent: ""})
 })
 app.get('/calendar.html', (req, res) => {
-    res.render('calendar.ejs')
+    if(req.isAuthenticated()) {
+        res.render('calendar.ejs', { 
+            reminder1: req.user[0].reminders[0].content,
+            reminder2: req.user[0].reminders[1].content,
+            reminder3: req.user[0].reminders[2].content,
+            reminder4: req.user[0].reminders[3].content
+        })
+    } else {
+        res.render('calendar.ejs', { 
+            reminder1: "",
+            reminder2: "",
+            reminder3: "",
+            reminder4: ""
+        })
+    
+    }
 })
 app.get('/notes.html', (req, res) => {
     res.render('notes.ejs')
@@ -77,9 +92,26 @@ app.get('/logout', checkAuthenticated, (req, res) => {
 /****************************************************
  *                     POST                         *
  ****************************************************/
+app.post('/reminders', checkAuthenticated, async (req, res) => {
+    await Users.updateOne({ _id: req.user[0]._id }, {
+        reminders: [{
+            content: req.body.one
+        },
+        {
+            content: req.body.two
+        },
+        {
+            content: req.body.three
+        },
+        {
+            content: req.body.four
+        }]
+    })
+    res.redirect('back')
+})
 app.post('/greatful', checkAuthenticated, async (req, res) => {
     
-    await Users.updateOne({ email: req.user[0].email }, {
+    await Users.updateOne({ _id: req.user[0]._id }, {
         greatful: req.body.msg
     })
     res.redirect('back') //quick fix to stop the reloading

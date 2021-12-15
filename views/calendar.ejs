@@ -272,30 +272,41 @@
 
 						<div> 
 							<div class="extras"  id="reminders" style="color:#fff; text-align: center"> REMINDERS
-								<form id="reminders-form" method="post">
+								<form id="reminders-form" action="/reminders" method="post">
 		
 									<ul>
 										<li>
-											<span><input type="text" class="input-reminders" id="input1" 
+											<span><input type="text" class="input-reminders" id="input1" name="one"
 											onclick="textboxFocus(this.id);"> <br></span>
 										</li>
 										<li>
-											<span><input type="text" class="input-reminders" id="input2"
+											<span><input type="text" class="input-reminders" id="input2" name="two"
 											onclick="textboxFocus(this.id);"> <br></span>
 										</li>
 										<li>
-											<span><input type="text" class="input-reminders" id="input3"
+											<span><input type="text" class="input-reminders" id="input3" name="three"
 											onclick="textboxFocus(this.id);"> <br></span>
 										</li>
 										<li>
-											<span><input type="text" class="input-reminders" id="input4"
+											<span><input type="text" class="input-reminders" id="input4" name="four"
 											onclick="textboxFocus(this.id);"> <br></span>
 										</li>
 									
 									</ul>
 								</form>
-						
 							</div>
+							<script lang="javascript">
+								let reminder1 = '<%= reminder1 %>'
+								let reminder2 = '<%= reminder2 %>'
+								let reminder3 = '<%= reminder3 %>'
+								let reminder4 = '<%= reminder4 %>'
+
+								document.getElementById("input1").value = reminder1
+								document.getElementById("input2").value = reminder2
+								document.getElementById("input3").value = reminder3
+								document.getElementById("input4").value = reminder4
+								
+							</script>
 						
 							<div class="extras" id="deadlines"> DEADLINES
 
