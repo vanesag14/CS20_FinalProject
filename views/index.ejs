@@ -335,12 +335,11 @@ input[type=text] {
     </br>
     What are you grateful for today?
     </br>
-    <form>
+    <form action="/greatful" method="POST">
    
-    <input type="text"/>
-    </br>
-    <button type="button" id="btn">SAVE</button>
-</form>
+    <input name="msg" type="text"/>
+    <button type="submit" id="btn">SAVE</button>
+    </form>
     </br>
         <!-- <button onclick="location.reload()">Reload</button> -->
     </div>
