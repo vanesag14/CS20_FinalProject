@@ -56,14 +56,35 @@ app.get('/calendar.html', (req, res) => {
             reminder1: req.user[0].reminders[0].content,
             reminder2: req.user[0].reminders[1].content,
             reminder3: req.user[0].reminders[2].content,
-            reminder4: req.user[0].reminders[3].content
+            reminder4: req.user[0].reminders[3].content,
+            deadline1: "",
+            deadline2: "",
+            deadline3: "",
+            deadline4: "",
+            deadline5: "",
+            deadline6: "",
+            deadline7: "",
+            deadline8: "",
+            deadline9: "",
+            deadline10: "",
+
         })
     } else {
         res.render('calendar.ejs', { 
             reminder1: "",
             reminder2: "",
             reminder3: "",
-            reminder4: ""
+            reminder4: "",
+            deadline1: "",
+            deadline2: "",
+            deadline3: "",
+            deadline4: "",
+            deadline5: "",
+            deadline6: "",
+            deadline7: "",
+            deadline8: "",
+            deadline9: "",
+            deadline10: "",
         })
     
     }
@@ -95,7 +116,11 @@ app.get('/logout', checkAuthenticated, (req, res) => {
 /****************************************************
  *                     POST                         *
  ****************************************************/
+ 
+
 app.post('/reminders', checkAuthenticated, async (req, res) => {
+    console.log(req.user[0].deadlines)
+    console.log(req.body.deadlines1)
     await Users.updateOne({ _id: req.user[0]._id }, {
         reminders: [{
             content: req.body.one
@@ -111,10 +136,36 @@ app.post('/reminders', checkAuthenticated, async (req, res) => {
         }],
         deadlines: [{ 
             content: req.body.deadline1,
-            dueDate:  12
+        },
+        { 
+            content: req.body.deadline2,
+        },
+        { 
+            content: req.body.deadline3,
+        },
+        { 
+            content: req.body.deadline4,
+        },
+        { 
+            content: req.body.deadline5,
+        },
+        { 
+            content: req.body.deadline6,
+        },
+        { 
+            content: req.body.deadline7,
+        },
+        { 
+            content: req.body.deadline8,
+        },
+        { 
+            content: req.body.deadline9,
+        },
+        { 
+            content: req.body.deadline10,
         }]
     })
-    console.log(req.body.deadlineDate1)
+    //console.log(req.body.deadlineDate1)
     //console.log(req.body.checkbox1)
     res.redirect('back')
 })
@@ -161,6 +212,51 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
                         isChecked: false, 
                         content: "", 
                         dueDate: 0 
+                    },
+                    { 
+                        isChecked: false, 
+                        content: "", 
+                        dueDate: 0 
+                    },
+                    { 
+                        isChecked: false, 
+                        content: "", 
+                        dueDate: 0 
+                    },
+                    { 
+                        isChecked: false, 
+                        content: "", 
+                        dueDate: 0 
+                    },
+                    { 
+                        isChecked: false, 
+                        content: "", 
+                        dueDate: 0 
+                    },
+                    { 
+                        isChecked: false, 
+                        content: "", 
+                        dueDate: 0 
+                    },
+                    { 
+                        isChecked: false, 
+                        content: "", 
+                        dueDate: 0 
+                    },
+                    { 
+                        isChecked: false, 
+                        content: "", 
+                        dueDate: 0 
+                    },
+                    { 
+                        isChecked: false, 
+                        content: "", 
+                        dueDate: 0 
+                    },
+                    { 
+                        isChecked: false, 
+                        content: "", 
+                        dueDate: 0 
                     }],
                     reminders: [{
                         content: ""
@@ -176,16 +272,29 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
                     }],
                     notes: [{
                         title: "",
-                        content: [""]
+                        content: ""
                     },
                     {
                         title: "",
-                        content: [""]
+                        content: ""
                     },
                     {
                         title: "",
-                        content: [""]
-                    }],
+                        content: ""
+                    },
+                    {
+                        title: "",
+                        content: ""
+                    },
+                    {
+                        title: "",
+                        content: ""
+                    },
+                    {
+                        title: "",
+                        content: ""
+                    },
+                    ],
                     greatful: ""
                 })
                 user1.save()
@@ -279,7 +388,7 @@ function createSchema() {
         }],
         notes: [{
             title: String,
-            content: [String]
+            content: String
         }],
         greatful: String
     })
