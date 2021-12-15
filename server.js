@@ -45,7 +45,7 @@ const Users = mongoose.model('Users', user)
  *       have to change the a href for all the files            *
  ****************************************************************/
 app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
-    res.render('index.ejs', { title: "" })
+    res.render('index.ejs', { title: "", inputContent: ""})
 })
 app.get('/calendar.html', (req, res) => {
     res.render('calendar.ejs')
@@ -60,7 +60,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: ""})
 })
 app.get('/ind', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { title: ", " + req.user[0].fName})
+    res.render('index.ejs', { title: ", " + req.user[0].fName, inputContent: req.user[0].greatful})
 })
 
 var firstN = ""
@@ -82,7 +82,7 @@ app.post('/greatful', checkAuthenticated, async (req, res) => {
     await Users.updateOne({ email: req.user[0].email }, {
         greatful: req.body.msg
     })
-    res.redirect('back')
+    res.redirect('back') //quick fix to stop the reloading
 })
 
 //goes to home back on successful login
