@@ -41,8 +41,8 @@ const user = createSchema();
 const Users = mongoose.model('Users', user)
 
 /****************************************************************
- *   TODO:                .GET                                  *
- *       have to change the a href for all the files            *
+ *                        .GET                                  *
+ *                                                              *
  ****************************************************************/
 app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
     res.render('index.ejs', { title: "", inputContent: ""})
@@ -92,6 +92,19 @@ app.get('/logout', checkAuthenticated, (req, res) => {
 /****************************************************
  *                     POST                         *
  ****************************************************/
+// app.post('/reminders', checkAuthenticated, async (req, res) => {
+//     booleans = []
+    
+//     console.log("booleans")
+//     await Users.updateOne({ _id: req.user[0]._id }, {
+//         deadlines: [{ 
+//             isChecked: Boolean, 
+//             content: String, 
+//             dueDate: Number 
+//         }]
+//     })
+//     res.redirect('back')
+// })
 app.post('/reminders', checkAuthenticated, async (req, res) => {
     await Users.updateOne({ _id: req.user[0]._id }, {
         reminders: [{
@@ -105,9 +118,14 @@ app.post('/reminders', checkAuthenticated, async (req, res) => {
         },
         {
             content: req.body.four
-        }]
+        }],
+        // deadlines: [{ 
+        //     content: String, 
+        //     dueDate: Number 
+        // }]
     })
-    res.redirect('back')
+    console.log(req.body.checkbox1)
+    //res.redirect('back')
 })
 app.post('/greatful', checkAuthenticated, async (req, res) => {
     

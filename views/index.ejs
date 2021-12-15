@@ -417,8 +417,7 @@ input[type=text] {
     
 
     <div id="main">
-    <h1>Welcome
-      <%= title %>
+    <h1>Welcome<%= title %>
     </h1>
     <div id="date"></div>
     <div id="month"></div>
@@ -436,15 +435,20 @@ input[type=text] {
     What are you grateful for today?
     </br>
 
-    <form>
+    <form action="/greatful" method="POST">
    
-    <input type="text"/>
-    </br>
-    <button type="button" id="btn">SAVE</button>
-</form>
+      <input id="input-box" name="msg" type="text"/>
+      </br>
+      <button type="submit" id="btn">SAVE</button>
+    </form>
     </br>
         <!-- <button onclick="location.reload()">Reload</button> -->
     </div>
+    <script lang="javascript">
+      // changes the greatful input box to the data from ejs
+      var inputValue = '<%= inputContent %>'
+      document.getElementById("input-box").value = inputValue
+    </script>
     </div>
 
     <script>

@@ -316,9 +316,9 @@
 							<div class="extras" id="deadlines"> DEADLINES
 
 								<div class="checkbox"> 
-								<form id="deadlines-form" action="reminders" method="POST">
+								<form id="deadlines-form" action="/reminders" method="POST">
 
-									<input type="checkbox" id="checkbox1" 
+									<input type="checkbox" id="checkbox1" name="checkbox1"
 									onclick="strikeThrough(this.id, document.getElementById('todo1').id);"> 
 									<input type="text" class="todolist" id="todo1" name="deadline1"> 
 									<input type="date" class="date"><br> <br>
