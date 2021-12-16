@@ -60,11 +60,11 @@
 			<a href="index.html">HOME</a>
 			<a href="calendar.html" style="color:#fff;">CALENDAR</a>
 			<a href="notes.html">NOTES</a>
-			<a href="/login" style=" <%= loginStyle %>"><button type="button" id="btn" class="loginbtn" style="border: none; height: 25px; width: 55px; font-family: inherit; 
+			<a href="/login"><button type="button" id="btn" class="loginbtn" style="border: none; height: 25px; width: 55px; font-family: inherit; 
                 border-radius: 10px;
                 background: #fff;">LOGIN</button></a>
             <form action="/logout?_method=DELETE" method="POST">
-                <a href="" style=" <%= styleChange %>"><button type="submit" id="btn3" class="loginbtn" style="border: none; height: 25px; width: 66px; border-radius: 10px;
+                <a href=""><button type="submit" id="btn3" class="loginbtn" style="border: none; height: 25px; width: 66px; border-radius: 10px;
                     background: #fff; font-family: inherit;">LOGOUT</button></a>
             </form>
 		</div>
@@ -76,7 +76,7 @@
 				<ul>
 					<li class="weekHeader"><a href="calendar.html">WEEK </a></li>
 					<li class="monthHeader"><a href="month.html">MONTH</a></li>
-					<span><li class="weekHeader"><a href="/login"><i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i></a></li></span>
+					<span><li class="weekHeader"><a href="login.html"><i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i></a></li></span>
 				</ul>
 			</div>
 
@@ -105,35 +105,64 @@
 						</div>
 				
 					<script src="month.js"></script>
+					
+				<form id="reminders-form" action="/reminders" method="POST">
+
+					<div class="extras"  id="reminders" style="color:#fff; text-align: center"> REMINDERS
+								
+						<ul>
+							<li>
+								<span><input style="color: #fff;" type="text" class="input-reminders" id="input1" name="one"
+								onclick="textboxFocus(this.id);"> <br></span>
+							</li>
+							<li>
+								<span><input style="color: #fff;" type="text" class="input-reminders" id="input2" name="two"
+								onclick="textboxFocus(this.id);"> <br></span>
+							</li>
+							<li>
+								<span><input style="color: #fff;" type="text" class="input-reminders" id="input3" name="three"
+								onclick="textboxFocus(this.id);"> <br></span>
+							</li>
+							<li>
+								<span><input style="color: #fff;" type="text" class="input-reminders" id="input4" name="four"
+								onclick="textboxFocus(this.id);"> <br></span>
+							</li>
+						
+						</ul>
+
+						<script lang="javascript">
+							let reminder1 = '<%= reminder1 %>'
+							let reminder2 = '<%= reminder2 %>'
+							let reminder3 = '<%= reminder3 %>'
+							let reminder4 = '<%= reminder4 %>'
+
+							document.getElementById("input1").value = reminder1;
+							document.getElementById("input2").value = reminder2;
+							document.getElementById("input3").value = reminder3;
+							document.getElementById("input4").value = reminder4;
+							
+							function textboxFocus(x){  
+								document.getElementById(x).style.color = "white"; 
+							}
+
+						</script>
+					
+						<button type="button" id="btn-saves">SAVE</button>
+				</form>
 					</div>
 
 				</article> 
-
-<!-- 				
-					<div class = "importantDates">
-					<h1 class = "importantDatesHeader">IMPORTANT DATES</h1>
-					
-					<form 
-					name = "importantDatesForm" 
-					method = "POST"
-					action = "http://localhost:8080/process"> 
-						<input type="text" class="todolist" id="todo10"  name="todolist"> 
-						<input type="date" class="setDate" name = "setDate"><br> <br>
-						<input type = "submit" class = "submitEvent" value = "SAVE">
-					</form>
-
-					</div>
-				 -->
-			
-	
 			</div>
         </div>
 
+		<script language="javascript">
+			$("#btn-saves").on("click", function() {
+				$("#reminders-form").submit(); 
+			});
 
-
+		</script>
 
 	
-		</script> 
 
 	</body>
 	
