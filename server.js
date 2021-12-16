@@ -191,12 +191,12 @@ app.get('/notes.html', (req, res) => {
         })
     } else {
         res.render('notes.ejs', {
-            noteTitle1: "",
-            noteTitle2: "",
-            noteTitle3: "",
-            noteTitle4: "",
-            noteTitle5: "",
-            noteTitle6: "",
+            noteTitle1: "Note Title 1",
+            noteTitle2: "Note Title 2",
+            noteTitle3: "Note Title 3",
+            noteTitle4: "Note Title 4",
+            noteTitle5: "Note Title 5",
+            noteTitle6: "Note Title 6",
             noteText1: "",
             noteText2: "",
             noteText3: "",
@@ -801,27 +801,27 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
                         content: ""
                     }],
                     notes: [{
-                        title: "",
+                        title: "Note Title 1",
                         content: ""
                     },
                     {
-                        title: "",
+                        title: "Note Title 2",
                         content: ""
                     },
                     {
-                        title: "",
+                        title: "Note Title 3",
                         content: ""
                     },
                     {
-                        title: "",
+                        title: "Note Title 4",
                         content: ""
                     },
                     {
-                        title: "",
+                        title: "Note Title 5",
                         content: ""
                     },
                     {
-                        title: "",
+                        title: "Note Title 6",
                         content: ""
                     }],
                     greatful: ""
