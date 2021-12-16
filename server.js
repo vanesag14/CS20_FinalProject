@@ -52,9 +52,23 @@ app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
 })
 app.get('/month.html', (req,res) => {
     if(req.isAuthenticated()) {
-        res.render('month.ejs', { styleChange: "", loginStyle: "display: none;" })
+        res.render('month.ejs', { 
+            styleChange: "", 
+            loginStyle: "display: none;",
+            reminder1: req.user[0].reminders[0].content,
+            reminder2: req.user[0].reminders[1].content,
+            reminder3: req.user[0].reminders[2].content,
+            reminder4: req.user[0].reminders[3].content
+        })
     } else {
-        res.render('month.ejs', { styleChange: "display: none;", loginStyle: "" })
+        res.render('month.ejs', { 
+            styleChange: "display: none;", 
+            loginStyle: "",
+            reminder1: "",
+            reminder2: "",
+            reminder3: "",
+            reminder4: ""
+        })
     }
     
 })
