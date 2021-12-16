@@ -44,7 +44,7 @@ const renderCalendar = () => {
 
   document.querySelector(".date h1").innerHTML = months[date.getMonth()] + ' ' + date.getFullYear();
 
-  document.querySelector(".date p").innerHTML = 'TODAY | ' + new Date().toDateString();
+  document.querySelector(".date p").innerHTML = new Date().toDateString();
 
   let days = "";
 
