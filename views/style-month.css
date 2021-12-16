@@ -122,7 +122,7 @@ body {
   } */
   .calendar {
     width: 100%;
-    height: 800px;
+    height: 875px;
     background-color: white;
     /* box-shadow: 0 0.5rem 3rem rgba(114, 33, 33, 0.4); */
 	  margin: 0px;
@@ -229,63 +229,60 @@ body {
   }
   
  
-/* NEW CHANGES */
-/* Deadline section */
-.importantDates {
-  margin-top: 30px;
-  padding: 10px;
-  display: block;
-  background: #A5D9FF;
-  border-radius: 10px;
-  width: 70%;
-  margin-left: 330px;
-
-  
+/* REMINDERS */
+/* Reminders */
+#reminders {
+  margin-top: 25px;
+	width: 80%;
+	border-radius: 10px;
+	background: #202020;
+	padding-top: 10px;
+  padding-bottom: 60px;
+	height: 160px;
+	overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+	/* --scrollbarBG: #CFD8DC; */
+	
 }
 
-.importantDatesHeader {
-text-align: center;
-font-weight: normal;
+
+.input-reminders {
+	width: calc(100% - 25px);
+	border: #fff;
+	border-bottom: solid 1px #3E3E3E; 
+	background: #3E3E3E;
+	border-radius: 3px;
+	padding: 3px;
 }
 
-.todolist {
-width: calc(100% - 55px);
-height: 25px;
-background: #E9F4FD;
-border: #E9F4FD;
-border-top-left-radius: 5px;
-border-top-right-radius: 5px;
-margin-left: 25px;
-
+div#reminders li {
+	margin-top: 5px;
+	padding-left: 0px;
+	list-style-type: circle;
+	position: relative;
+    left: -8px;
 }
 
-.setDate {
-font-family: inherit; 
-font-size: 11px;
-border: solid #fff;
-width: calc(100% - 56px);
-margin-left: 25px;
+span {
+	position: relative;
+        left: -5px;
 }
 
-.submitEvent {
-font-family: inherit;
-width: 100px;
-height: 38px;
-border-radius: 10px;
-background: #fff;
-border: solid 1px;
-left: 50%;
-max-width: 100%;
-margin: 0 auto;
-display: block;
+
+
+#btn-saves {
+	font-family: inherit;
+	width: 20%;
+	height: 38px;
+	border-radius: 10px;
+	background: #fff;
+	border: solid 1px;
 }
 
-.submitEvent:hover {
-cursor: pointer;
-background-color: black;
-color: #fff;
+#btn-saves:hover {
+	cursor: pointer;
 }
-/* NEW CHANGES */
 
 @media screen and (max-width: 630px) {
   .days div {
@@ -298,9 +295,6 @@ color: #fff;
     width: calc(82% / 7);
   }
 }
-
-
-
 
 
 /* Mobile Friendly */
@@ -395,6 +389,16 @@ color: #fff;
         
         .days div {
           width: calc(72% / 7);
+        }
+
+        #main .calnav ul li {
+	
+          list-style: none;
+          display: inline-block;
+          padding: 8px 20px;
+          margin-bottom: 20px;
+          margin-top: 30px;
+        
         }
   
   
