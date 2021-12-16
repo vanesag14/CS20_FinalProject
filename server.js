@@ -47,20 +47,21 @@ const Users = mongoose.model('Users', user)
 app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
     //if user is authenticated, display none
     if (!req.isAuthenticated()) {
-        res.render('index.ejs', { title: "", inputContent: "", styleChange: "display: none;"})
+        res.render('index.ejs', { title: "", inputContent: "", styleChange: "display: none;", loginStyle: ""})
     }
 })
 app.get('/month.html', (req,res) => {
     if(req.isAuthenticated()) {
-        res.render('month.ejs', { styleChange: "" })
+        res.render('month.ejs', { styleChange: "", loginStyle: "display: none;" })
     } else {
-        res.render('month.ejs', { styleChange: "display: none;" })
+        res.render('month.ejs', { styleChange: "display: none;", loginStyle: "" })
     }
     
 })
 app.get('/calendar.html', (req, res) => {
     if(req.isAuthenticated()) {
         res.render('calendar.ejs', { 
+            loginStyle: "display: none;",
             styleChange: "",
             reminder1: req.user[0].reminders[0].content,
             reminder2: req.user[0].reminders[1].content,
@@ -121,6 +122,7 @@ app.get('/calendar.html', (req, res) => {
         })
     } else {
         res.render('calendar.ejs', { 
+            loginStyle: "",
             styleChange: "display: none;",
             reminder1: "",
             reminder2: "",
@@ -186,6 +188,7 @@ app.get('/notes.html', (req, res) => {
     //if user is logged in
     if(req.isAuthenticated()) { 
         res.render('notes.ejs', {
+            loginStyle: "display: none;",
             styleChange: "",
             noteTitle1: req.user[0].notes[0].title,
             noteTitle2: req.user[0].notes[1].title,
@@ -202,6 +205,7 @@ app.get('/notes.html', (req, res) => {
         })
     } else {
         res.render('notes.ejs', {
+            loginStyle: "",
             styleChange: "display: none;",
             noteTitle1: "Note Title 1",
             noteTitle2: "Note Title 2",
@@ -227,7 +231,7 @@ app.get(['/login', 'login.html'], checkNotAuthenticated, (req, res) => {
 })
 app.get('/ind', checkAuthenticated, (req, res) => {
     if (req.isAuthenticated()) {
-        res.render('index.ejs', { title: ", " + req.user[0].fName, inputContent: req.user[0].greatful, styleChange: ""})
+        res.render('index.ejs', { title: ", " + req.user[0].fName, inputContent: req.user[0].greatful, styleChange: "", loginStyle: "display: none;"})
     }
     
 })
