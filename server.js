@@ -45,14 +45,23 @@ const Users = mongoose.model('Users', user)
  *                                                              *
  ****************************************************************/
 app.get(['/', '/index.html'], checkNotAuthenticated, (req, res) => {
-    res.render('index.ejs', { title: "", inputContent: ""})
+    //if user is authenticated, display none
+    if (!req.isAuthenticated()) {
+        res.render('index.ejs', { title: "", inputContent: "", styleChange: "display: none;"})
+    }
 })
 app.get('/month.html', (req,res) => {
-    res.render('month.ejs')
+    if(req.isAuthenticated()) {
+        res.render('month.ejs', { styleChange: "" })
+    } else {
+        res.render('month.ejs', { styleChange: "display: none;" })
+    }
+    
 })
 app.get('/calendar.html', (req, res) => {
     if(req.isAuthenticated()) {
         res.render('calendar.ejs', { 
+            styleChange: "",
             reminder1: req.user[0].reminders[0].content,
             reminder2: req.user[0].reminders[1].content,
             reminder3: req.user[0].reminders[2].content,
@@ -112,6 +121,7 @@ app.get('/calendar.html', (req, res) => {
         })
     } else {
         res.render('calendar.ejs', { 
+            styleChange: "display: none;",
             reminder1: "",
             reminder2: "",
             reminder3: "",
@@ -176,6 +186,7 @@ app.get('/notes.html', (req, res) => {
     //if user is logged in
     if(req.isAuthenticated()) { 
         res.render('notes.ejs', {
+            styleChange: "",
             noteTitle1: req.user[0].notes[0].title,
             noteTitle2: req.user[0].notes[1].title,
             noteTitle3: req.user[0].notes[2].title,
@@ -191,6 +202,7 @@ app.get('/notes.html', (req, res) => {
         })
     } else {
         res.render('notes.ejs', {
+            styleChange: "display: none;",
             noteTitle1: "Note Title 1",
             noteTitle2: "Note Title 2",
             noteTitle3: "Note Title 3",
@@ -214,7 +226,10 @@ app.get(['/login', 'login.html'], checkNotAuthenticated, (req, res) => {
     res.render('login.ejs', { firstName: ""})
 })
 app.get('/ind', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { title: ", " + req.user[0].fName, inputContent: req.user[0].greatful})
+    if (req.isAuthenticated()) {
+        res.render('index.ejs', { title: ", " + req.user[0].fName, inputContent: req.user[0].greatful, styleChange: ""})
+    }
+    
 })
 
 var firstN = ""
