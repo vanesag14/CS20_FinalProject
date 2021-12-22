@@ -1,3 +1,8 @@
+/* 
+    TODO:
+         - fix 
+*/
+
 //dependencies: nodemon, dotenv, express, ejs, bcrypt, mongoose, passport, passport-local, 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
