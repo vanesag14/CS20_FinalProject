@@ -1,7 +1,7 @@
 /* 
     TODO:
-         - fix the character issue when retrieving from db (probably has something to do with seting default to UTF-8)
-         - each entry in db alligns with a date not the day of the week
+         - fix the character issue when retrieving from db
+         - each entry in db should alligns with a date not the day of the week
          - figure out problem with deadlines and somehow find a way to read/update the date
          - figure out how to store if something has been checked or not 
          - some functionality to the month page
